@@ -1,0 +1,18 @@
+Общее задание
+
+Количество предложений в тексте: 11
+	Из них:
+	Повествовательные: 7
+	Побудительные: 3
+	Вопросительные: 1
+	Средняя длина предложения: 11.545454545454545
+	Средняя длина слова: 4.696296296296296
+	Количество смайликов в тексте: 0
+
+Задание варианта
+
+Слова с символами от "a" до "o" и цифрами: ['Hello', 'I', 'm', '5', 'Did', '100', 'billion', 'in', 'a', 'mind', 'boggling', '200', 'billion', 'and', 'one', 'of', 'Imagine', 'of', 'In', 'can', 'like', '270', 'cold', 'a', 'in', 'black', 'can', 'a', 'and', 'John']
+Текст не содержит шестизначное число без ведущих нулей.
+Количество слов в кавычках: 0
+Вхождения каждой буквы: {'h': 26, 'e': 77, 'l': 30, 'o': 45, 'v': 14, 'r': 37, 'y': 15, 'n': 42, 't': 52, 'd': 16, 'a': 50, 'i': 50, 'm': 15, 'x': 7, 'c': 19, 's': 46, 'w': 7, 'u': 21, 'g': 18, 'f': 7, 'b': 13, 'k': 4, 'j': 3, 'p': 9, 'z': 1}
+Фразы в алфавитном порядке: ['Best', 'Celsius', 'Did', 'Exploring', 'For', 'Gravity', 'Hello', 'I', 'Imagine', 'In', 'It', 'John', 'Milky', 'Our', 'Today', 'Way', 'a', 'about', 'absolute', 'and', 'are', 'beyond', 'billion', 'black', 'boggling', 'can', 'close', 'cold', 'contain', 'crucial', 'degrees', 'drop', 'escape', 'estimated', 'even', 'everyone', 'example', 'excited', 'extreme', 'facts', 'fascinating', 'fathom', 'from', 'galaxies', 'galaxy', 'gravity', 'hard', 'have', 'holes', 'imagination', 'in', 'incredibly', 'interesting', 'is', 'it', 'journey', 'just', 'know', 'levels', 'light', 'like', 'low', 'm', 'many', 'mind', 'mysteries', 'not', 'number', 'observable', 'of', 'one', 'our', 'out', 'over', 'own', 'plays', 'regards', 'role', 's', 'shaping', 'share', 'space', 'stars', 'strong', 'such', 'temperatures', 'that', 'the', 'them', 'there', 'to', 'universe', 'unveils', 'vastness', 'which', 'with', 'wonders', 'you', 'zero']
