@@ -1,5 +1,6 @@
 from .PickleSerializer import PickleSerializer
 from .CSVSerializer import CSVSerializer
+from collections import OrderedDict
 
 class SynonymDictionary:
 
@@ -21,6 +22,11 @@ class SynonymDictionary:
     def add_synonym(self, word1, word2):
         self._dictionary[word1] = word2
         self._dictionary[word2] = word1
+
+    def sort_dictionary_by_key(self):
+        sorted_dict = OrderedDict(sorted(self.dictionary.items()))
+        self.dictionary = sorted_dict  # Используем сеттер для установки отсортированного словаря
+        return f"Current Dictionary:{self.dictionary}"
 
 
     def serialize_to_file(self):

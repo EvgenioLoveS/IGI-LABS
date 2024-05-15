@@ -53,11 +53,12 @@ class Task1():
             while True:
 
                 choice = input("""
-                    Enter your choice (1-4, or 0 to exit):
+                    Enter your choice (1-5, or 0 to exit):
                     1. Get the current dictionary
                     2. Add synonyms to the dictionary
                     3. Find a synonym for a word
                     4. Find the synonym for the last word in the dictionary
+                    5. Sort
                     0. Exit
                     """)
 
@@ -88,6 +89,16 @@ class Task1():
                     result_pickle = syn_dict_pickle.find_last_word_synonym()
                     print("CSV Last Word Synonym Result:", result_csv)
                     print("Pickle Last Word Synonym Result:", result_pickle)
+                elif choice == '5':
+                    sorted_result_csv = syn_dict_csv.sort_dictionary_by_key()
+                    sorted_result_pickle = syn_dict_pickle.sort_dictionary_by_key()
+    
+                    # Выводим результаты сортировки
+                    print("CSV Sorted Dictionary:")
+                    print(sorted_result_csv)
+    
+                    print("\nPickle Sorted Dictionary:")
+                    print(sorted_result_pickle)
 
                 elif choice == '0':
                     # Выход из внутреннего цикла, продолжение работы программы
