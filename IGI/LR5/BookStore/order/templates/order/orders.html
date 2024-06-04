@@ -1,0 +1,25 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+<h1>Список заказов</h1>
+<table cellpadding="8">
+    <thead>
+        <tr>
+            <th>ID заказа</th>
+            <th>Клиент</th>
+            <th>Дата создания</th>
+            <th>Общая стоимость</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.client }}</td>
+            <td>{{ order.created }}</td>
+            <td>${{ order.total_cost|floatformat:2 }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

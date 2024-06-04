@@ -1,0 +1,53 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %}
+О сайте
+{% endblock %}
+
+{% block content %} 
+            
+
+        <a href="top"></a>
+        <h1 align="center">Информация о компании</h1>
+
+        <section>
+            <h2>Информация о компании</h2>
+            <p itemprop="legalName"><strong><font size="+4">ShopByEvgenio</font></strong></p>
+        </section>
+
+        <section>
+            <h2>Видео компании</h2>
+            <!-- Заглушка для видео и гимна -->
+            <p>Видео soon...</p>
+        </section>
+
+        <section>
+            <h2>Логотип компании</h2>
+            <!-- Заглушка для логотипа -->
+            <p>Логотип soon...</p>
+        </section>
+
+        <section>
+            <h2>История компании</h2>
+            <dl>
+                {% for el in history %}
+                <section>
+                    <dt><time datetime="{{ el.0 }}"><b>{{ el.0 }}</b></time></dt>
+                    {% for descrs in el.1 %}
+                        <dd>{{descrs}}</dd>
+                    {% endfor %}
+                </section>
+                {% endfor %}
+            </dl>
+        </section>
+
+        <section class="requisites">
+            <h2>Реквизиты:</h2>
+            <!-- Заглушка для реквезитов -->
+            <p>Реквизиты soon...</p>
+        </section>
+
+        <a href="#top">Наверх</a>
+
+{% endblock %}

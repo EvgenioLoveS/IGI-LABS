@@ -1,0 +1,26 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %}
+    Главная
+{% endblock %}
+
+{% block content %}
+
+    <div style="position: absolute; top: 10px; right: 10px; text-align: right;">
+        <p>Текущее время: {{ time }}</p>
+        <p>Таймзона пользователя: {{ user_timezone }}</p>
+    </div>
+
+    <h1 align="center">Главная</h1>
+
+    <hr />
+    <h2>Последняя статья:</h2>
+    <article itemscope itemtype="https://schema.org/Article">
+        <p dir="ltr" itemprop="name"><b>{{ last_article.title }}</b></p>
+        <p dir="ltr" itemprop="articleBody">{{ last_article.short }}</p>
+        <p dir="ltr" itemprop="datePublished">{{ last_article.date }}</p>
+    </article>
+    <hr />
+    
+{% endblock %}

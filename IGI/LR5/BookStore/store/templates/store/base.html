@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"/>
+    {% block extra_head %}{% endblock %}
+    <title>{% block title %} ShopByEvgenio {% endblock %}</title>
+</head>
+<body>
+<header>
+    <nav>
+        <ul style="list-style-type: none; padding: 0;">
+            <li style="display: inline; margin-right: 10px;"><button><a href="/home/">Главная&nbsp;</a></button></li>
+            <li style="display: inline; margin-right: 10px;"><button><a href="/about/">О компании&nbsp;</a></button></li>
+            <li style="display: inline; margin-right: 10px;"><button><a href="/workers/">Наши работники&nbsp;</a></button></li>
+            <li style="display: inline; margin-right: 10px;"><button><a href="/vacancies/">Вакансии&nbsp;</a></button></li>
+            <li style="display: inline; margin-right: 10px;"><button><a href="/privacy/">Политика конфиденциальности&nbsp;</a></button></li>
+            <li style="display: inline; margin-right: 10px;"><button><a href="/faqs/">Вопросы&nbsp;</a></button></li>
+            <li style="display: inline; margin-right: 10px;"><button><a href="/articles/">Статьи&nbsp;</a></button></li>
+            <li style="display: inline; margin-right: 10px;"><button><a href="/coupons/">Купоны&nbsp;</a></button></li>
+            <li style="display: inline; margin-right: 10px;"><button><a href="/reviews/">Отзывы&nbsp;</a></button></li>
+            {% if user.is_authenticated %}
+            <li style="display: inline; margin-right: 10px;"><button><a href="{% url 'order:user_orders' %}">Мои заказы&nbsp;</a></button></li>
+            {% endif %}
+            {% if user.is_superuser %}
+            <li style="display: inline; margin-right: 10px;"><button><a href= "{% url 'analytics:statistic' %}" >Статистика&nbsp;</a></button></li>
+            {% endif %}
+            {% if user.is_superuser %}
+            <li style="display: inline; margin-right: 10px;"><button><a href= "{% url 'analytics:order_graph' %}" >График заказов&nbsp;</a></button></li>
+            {% endif %}
+            {% if user.is_superuser or user.is_staff %}
+            <li style="display: inline; margin-right: 10px;"><button><a href="{% url 'order:order_list' %}">Список заказов&nbsp;</a></button></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <h1><a href="{% url 'store:book_list' %}" style="text-decoration: none;">Наш магазин</a></h1>
+</header>
+<div>
+    {% if user.is_authenticated %}
+        {% with total_items=cart|length %}
+            {% if cart|length > 0 %}
+                <p>Your cart:
+                <a href="{% url 'cart:cart_detail' %}">
+                    {{ total_items }} item{{ total_items|pluralize }},
+                    ${{ cart.get_total_price }}
+                </a></p>
+            {% else %}
+                <p>Ваша корзина пуста</p>
+            {% endif %}
+        {% endwith %}
+        |{{ user.username }}|
+        <a href="{% url 'login:logout' %}">LogOut</a>
+    {% else %}
+        <a href="{% url 'login:register' %}">Sign up</a>
+        <a href="{% url 'login:login' %}">Sign in</a>
+    {% endif %}
+</div>
+<div>
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>

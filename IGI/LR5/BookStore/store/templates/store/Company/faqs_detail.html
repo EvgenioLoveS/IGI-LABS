@@ -1,0 +1,22 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %}
+Вопрос
+{% endblock %}
+
+{% block content %}
+
+<h1 align="center">Информация о вопросе № {{ faq.id }}</h1>
+
+<section itemscope itemtype="https://schema.org/FAQPage">
+        <section>
+            <details>
+                <summary itemscope itemtype="https://schema.org/Question" itemprop="name"> {{ faq.question }}</summary>
+                <p itemscope itemtype="https://schema.org/Answer" itemprop="text">{{ faq.answer }}</p>
+            </details>
+            <p itemprop="datePublished">{{ faq.date }}</p>
+        </section>
+</section>
+
+{% endblock %}

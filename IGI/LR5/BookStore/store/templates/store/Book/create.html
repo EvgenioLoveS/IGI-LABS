@@ -1,0 +1,20 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %}
+Создание книги
+{% endblock %}
+
+{% block content %}
+
+<h1 align="center">Создание новой книги</h1>
+
+<section>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Сохранить">
+    </form>
+</section>
+
+{% endblock %}

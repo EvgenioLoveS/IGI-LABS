@@ -1,0 +1,24 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %}
+Вакансии
+{% endblock %}
+
+{% block content %}
+
+<footer>
+    <h1 align="center">Вакансии</h1>
+</footer>
+
+<section itemscope itemtype="https://schema.org/JobPosting">
+    {% for vacancy in vacancies %}
+    <div>
+        <h2 itemprop="title">{{vacancy.name}}</h2>
+        <p itemprop="description">{{vacancy.description}}</p>
+        <p itemprop="baseSalary"><b> ${{vacancy.salary}}</b></p>
+    </div>
+    {% endfor %}
+</section>
+
+{% endblock %}
