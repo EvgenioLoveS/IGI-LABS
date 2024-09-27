@@ -3,18 +3,18 @@ from collections import defaultdict
 import logging
 import os
 from django.conf import settings
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from matplotlib import pyplot as plt
 import pytz
 
 from order.models import Order, OrderItem
-from store.models import Book, Client, Genre, Language, Author, History, Article, Adversisment, \
+from store.models import Book, Client, Company, Genre, Language, Author, History, Article, Adversisment, \
                     Partner, Vacancy, FAQ, WorkerPosition, Comment, RotationTime
 from login.models import CustomUser
 from django.http import HttpResponseRedirect
 from django.http import HttpResponseNotFound
 from django.core.exceptions import PermissionDenied
-from store.forms import BookForm, CommentForm
+from store.forms import BookForm, CommentForm, UserProfileForm
 from django.db.models import Avg, Count, Sum
 from cart.forms import CartAddBookForm
 from statistics import median, mode
@@ -158,36 +158,49 @@ def home(request):
     current_time = timezone.now().astimezone(pytz.timezone(user_timezone))
     logger.info("Rendering home page")
 
+    last_article = Article.objects.order_by('-date').first()
+    partners = Partner.objects.all()
+    company = Company.objects.first()  # Получаем первую компанию
+
     return render(request, "store/Company/home.html", {
-        "last_article": list(Article.objects.all())[-1],
+        "last_article": last_article, #list(Article.objects.all())[-1],
         "time": current_time.strftime('%d/%m/%Y %H:%M:%S'),
-        "user_timezone": user_timezone
+        "user_timezone": user_timezone,
+        "partners": partners,
+        "company": company
     })
 
+
 def about_company(request):
-    logger.info("Fetching company history")
-    hist = History.objects.all()
-    out = list()
-    out.append((hist[0].year, list()))
-    out[0][1].append(hist[0].description)
 
-    indx = 0
+    logger.info("Fetching company details, history, and contact info")
 
-    for i in range(len(hist)):
-        if i == 0:
-            continue
+    # Получаем данные о компании (если у вас всегда одна компания)
+    company = Company.objects.first()
+    
+    # Получаем реквизиты компании через OneToOne связь
+    contact_info = company.contact_info
 
-        if hist[i].year == out[indx][0]:
-            out[indx][1].append(hist[i].description)
-        else:
-            indx += 1
-            out.append((hist[i].year, list()))
-            out[indx][1].append(hist[i].description)
+    # Получаем историю компании через ForeignKey с related_name
+    history = company.histories.all()
 
-    out = sorted(out)
-    logger.debug(f"Company history: {out}")
+    # Группируем события по годам
+    history_sorted = {}
+    for event in history:
+        if event.year not in history_sorted:
+            history_sorted[event.year] = []
+        history_sorted[event.year].append(event.description)
 
-    return render(request, "store/Company/about.html", {"history": out})
+    # Преобразуем в список для шаблона
+    history_list = sorted(history_sorted.items())
+
+    logger.debug(f"Company history: {history_list}")
+
+    return render(request, "store/Company/about.html", {
+         "company": company,
+         "contact_info": contact_info,
+         "history": history_list,
+     })
 
 def workers_list(request):
     logger.info("Fetching workers list")
@@ -253,3 +266,24 @@ def review_create(request):
         return render(request, "store/Review/create.html", {"form": form})
 
     return HttpResponseRedirect("/reviews/")
+
+
+def user_profile(request, username):
+    # Получаем пользователя по username
+    user = get_object_or_404(CustomUser, username=username)
+    
+    return render(request, 'store/Profile/user_profile.html', {'user_profile': user})
+
+
+def profile_edit(request, username):
+    user = get_object_or_404(CustomUser, username=username)
+    
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('store:user_profile', username=user.username)
+    else:
+        form = UserProfileForm(instance=user)
+    
+    return render(request, 'store/Profile/profile_edit.html', {'form': form})

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from store.models import Book, Author, Genre, Language, Client, History, \
+from store.models import Book, Author, ContactInfo, Genre, Language, Client, History,Company, \
                     Article, Adversisment, Partner, Vacancy, FAQ, WorkerPosition, \
                     Comment, RotationTime
 
@@ -33,6 +33,14 @@ class ClientAdmin(admin.ModelAdmin) :
 @admin.register(History)
 class HistoryAdmin(admin.ModelAdmin):
     list_display = ['year', 'description']
+
+@admin.register(Company)
+class CompanyAdmin(admin.ModelAdmin):
+    list_display = ['name', 'description', 'video', 'logo', 'certificate']
+
+@admin.register(ContactInfo)
+class ContactInfoAdmin(admin.ModelAdmin):
+    list_display = ['company', 'email', 'phone_number']
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):

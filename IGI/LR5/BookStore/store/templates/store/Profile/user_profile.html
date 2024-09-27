@@ -1,0 +1,51 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<meta name="description" content="Страница профиля пользователя">
+<meta name="keywords" content="Bookshop, profile, information">
+<meta name="author" content="Zhgutov Evgeniy">
+{% endblock %}
+
+{% block title %}
+Профиль пользователя {{ user_profile.username }}
+{% endblock %}
+
+{% block content %}
+    <h1 align="center">Профиль {{ user_profile.username }}</h1>
+
+    <section>
+        <h2>Основная информация</h2>
+
+        {% if user_profile.avatar %}
+            <h3>Аватар</h3>
+            <img src="{{ user_profile.avatar.url }}" alt="Аватар {{ user_profile.username }}" style="max-width:200px;"/>
+        {% else %}
+            <p>Аватар отсутствует</p>
+        {% endif %}
+        
+        <p><strong>Имя:</strong> {{ user_profile.first_name }}</p>
+        <p><strong>Фамилия:</strong> {{ user_profile.last_name }}</p>
+        <p><strong>Дата рождения:</strong> {{ user_profile.date_of_birth }}</p>
+        <p><strong>Email:</strong> {{ user_profile.email }}</a></p>
+        <p><strong>Телефон:</strong> {{ user_profile.phone_number }}</a></p>
+
+        <!-- Выводим статус пользователя -->
+        <p><strong>Статус пользователя:</strong> 
+            {% if user_profile.is_superuser %}
+                Администратор
+            {% elif user_profile.is_staff %}
+                Сотрудник
+            {% else %}
+                Обычный пользователь
+            {% endif %}
+        </p>
+    </section>
+
+    <div style="text-align: center; margin-top: 20px;"></div>
+        <a href="{% url 'store:profile_edit' username=user_profile.username %}" class="btn btn-primary">Редактировать профиль</a>
+    </div>
+
+
+{% endblock %}
+

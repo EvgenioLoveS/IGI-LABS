@@ -1,53 +1,76 @@
+
 {% extends "store/base.html" %}
 {% load static %}
 
-{% block title %}
-О сайте
+{% block extra_head %}
+<meta name="description" content="Страница с информацией о компании">
+<meta name="keywords" content="Bookshop, company, about">
+<meta name="author" content="Zhgutov Evgeniy">
 {% endblock %}
 
-{% block content %} 
-            
+{% block title %}
+О компании
+{% endblock %}
 
-        <a href="top"></a>
-        <h1 align="center">Информация о компании</h1>
+{% block content %}
+    <a href="top"></a>
+    <h1 align="center">Информация о компании</h1>
 
-        <section>
-            <h2>Информация о компании</h2>
-            <p itemprop="legalName"><strong><font size="+4">ShopByEvgenio</font></strong></p>
-        </section>
+    <section>
+        <p itemprop="legalName"><strong><font size="+4">{{ company.name }}</font></strong></p>
+        <p>{{ company.description }}</p>
+    </section>
 
-        <section>
-            <h2>Видео компании</h2>
-            <!-- Заглушка для видео и гимна -->
-            <p>Видео soon...</p>
-        </section>
+    <section></section>
+        <h2>Логотип компании</h2>
+        {% if company.logo %}
+            <img class="logo-img" src="{{ company.logo.url }}" alt="Логотип компании">
+        {% else %}
+            <p>Логотип скоро...</p>
+        {% endif %}
+    </section>
 
-        <section>
-            <h2>Логотип компании</h2>
-            <!-- Заглушка для логотипа -->
-            <p>Логотип soon...</p>
-        </section>
+    <section>
+        <h2>Видео компании</h2>
+        {% if company.video %}
+            <video controls>
+                <source src="{{ company.video.url }}" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+        {% else %}
+            <p>Видео скоро...</p>
+        {% endif %}
+    </section>
 
-        <section>
-            <h2>История компании</h2>
-            <dl>
-                {% for el in history %}
+
+    <section>
+        <h2>История компании</h2>
+        <dl>
+            {% for year, descriptions in history %}
                 <section>
-                    <dt><time datetime="{{ el.0 }}"><b>{{ el.0 }}</b></time></dt>
-                    {% for descrs in el.1 %}
-                        <dd>{{descrs}}</dd>
+                    <dt><time datetime="{{ year }}"><b>{{ year }}</b></time></dt>
+                    {% for description in descriptions %}
+                        <dd>{{ description }}</dd>
                     {% endfor %}
                 </section>
-                {% endfor %}
-            </dl>
-        </section>
+            {% endfor %}
+        </dl>
+    </section>
 
-        <section class="requisites">
-            <h2>Реквизиты:</h2>
-            <!-- Заглушка для реквезитов -->
-            <p>Реквизиты soon...</p>
-        </section>
+    <section class="requisites">
+        <h2>Реквизиты компании:</h2>
+        <p>Почта: <a href="mailto:{{ contact_info.email }}" itemprop="email">{{ contact_info.email }}</a></p>
+        <p>Телефон: <a href="tel:+{{ contact_info.phone_number }}" itemprop="telephone">{{ contact_info.phone_number }}</a></p>
+    </section>
 
-        <a href="#top">Наверх</a>
+    <section></section>
+        <h2>Сертификат компании</h2>
+        {% if company.certificate %}
+            <img src="{{ company.certificate.url }}" alt="Сертификат компании">
+        {% else %}
+            <p>Сертификат скоро...</p>
+        {% endif %}
+    </section>
 
+    <a href="#top">Наверх</a>
 {% endblock %}

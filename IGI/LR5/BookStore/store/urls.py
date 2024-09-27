@@ -39,4 +39,8 @@ urlpatterns = [
     re_path(r'^books/(?P<id>\d+)/$', views.book_detail, name='book_detail'),
     #path('<str:book_genre_name>/', views.book_list, name='book_list_by_genre'), 
     re_path(r'^books/(?P<book_genre_name>[\w-]+)/$', views.book_list, name='book_list_by_genre'),  
+
+    #User related views
+    path('user/<str:username>/', views.user_profile, name='user_profile'),
+    path('user/<str:username>/edit/', views.profile_edit, name='profile_edit'),
 ]

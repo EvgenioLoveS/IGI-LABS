@@ -100,25 +100,69 @@ class Client(models.Model) :
         verbose_name_plural = 'Клиенты'
     
     def get_absolute_url(self):
-        return reverse('client-detail', args=[str(self.id)])
+        return reverse('client_detail', args=[str(self.id)])
 
     def __str__(self) :
         return '{0}, {1}'.format(self.first_name, self.last_name) 
     
+# class History(models.Model):
+#    year = models.PositiveIntegerField(
+#            validators=[
+#                MinValueValidator(1900), 
+#                MaxValueValidator(date.today().year)],
+#                help_text="Use the following format: YYYY")
+#    description = models.TextField()
+
+#    class Meta:
+#        verbose_name = 'История'
+#        verbose_name_plural = 'Истории'
+
+#    def __str__(self):
+#        return self.description
+
+
+class Company(models.Model):
+    name = models.CharField(max_length=200, help_text="Название компании")
+    description = models.TextField(help_text="Информация о компании")
+    video = models.FileField(upload_to='company/videos/', blank=True, null=True, help_text="Видео компании")
+    logo = models.ImageField(upload_to='company/logo/', blank=True, null=True, help_text="Логотип компании")
+    certificate = models.ImageField(upload_to='company/certificates/', blank=True, null=True, help_text="Сертификат компании")
+
+    class Meta:
+        verbose_name = 'Компания'
+        verbose_name_plural = 'Компании'
+    
+    def __str__(self):
+        return self.name
+
+class ContactInfo(models.Model):
+    company = models.OneToOneField(Company, on_delete=models.CASCADE, related_name='contact_info')
+    email = models.EmailField(help_text="Электронная почта компании")
+    phone_number = models.CharField(max_length=20, help_text="Номер телефона компании")
+
+    class Meta:
+        verbose_name = 'Реквизиты компании'
+        verbose_name_plural = 'Реквизиты компаний'
+    
+    def __str__(self):
+        return f'Контактная информация для {self.company.name}'
+
 class History(models.Model):
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='histories',default=1)
     year = models.PositiveIntegerField(
-            validators=[
-                MinValueValidator(1900), 
-                MaxValueValidator(date.today().year)],
-                help_text="Use the following format: YYYY")
-    description = models.TextField()
+        validators=[
+            MinValueValidator(1900), 
+            MaxValueValidator(date.today().year)],
+        help_text="Год события (используйте формат YYYY)")
+    description = models.TextField(help_text="Описание события")
 
     class Meta:
         verbose_name = 'История'
-        verbose_name_plural = 'Истории'
+        verbose_name_plural = 'Истории компании'
 
     def __str__(self):
-        return self.description
+        return f'{self.year}: {self.description}'
+
     
 class Article(models.Model):
     date = models.DateField()

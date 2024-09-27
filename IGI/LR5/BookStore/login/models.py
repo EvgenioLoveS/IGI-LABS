@@ -15,6 +15,7 @@ class CustomUser(AbstractUser):
     email = models.EmailField()
     phone_number = models.CharField(max_length=50,
                                     help_text='Enter phone number')
+    avatar = models.ImageField(upload_to='avatars/', blank=True, null=True, help_text='Upload avatar')
     
     objects = CustomUserManager()
 

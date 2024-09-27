@@ -1,6 +1,12 @@
 {% extends "store/base.html" %}
 {% load static %}
 
+{% block extra_head %}
+<meta name="description" content="Страница со статьей">
+<meta name="keywords" content="Bookshop, book, shop, article">
+<meta name="author" content="Zhgutov Evgeniy">
+{% endblock %}
+
 {% block title %}
 Статья {{ article.title }}
 {% endblock %}

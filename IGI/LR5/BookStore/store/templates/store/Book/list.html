@@ -1,6 +1,12 @@
 {% extends "store/base.html" %}
 {% load static %}
 
+{% block extra_head %}
+<meta name="description" content="Страница с книгами">
+<meta name="keywords" content="Bookshop, book, shop">
+<meta name="author" content="Zhgutov Evgeniy">
+{% endblock %}
+
 {% block title %}
 {% if genre %}{{ genre.name }}{% else %}Books{% endif %}
 {% endblock %}
