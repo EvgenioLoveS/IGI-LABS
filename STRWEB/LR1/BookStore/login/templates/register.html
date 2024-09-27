@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="description" content="Страница с регистрацией">
+        <meta name="keywords" content="Bookshop, book, shop, register">
+        <meta name="author" content="Zhgutov Evgeniy">
+        <title>Registration</title>
+    </head>
+    <body>
+        <form action = "" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Register</button>
+        </form>
+    </body>
+</html>

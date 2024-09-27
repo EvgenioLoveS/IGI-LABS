@@ -1,0 +1,35 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<meta name="description" content="Страница для отзыва">
+<meta name="keywords" content="Bookshop, book, shop, review">
+<meta name="author" content="Zhgutov Evgeniy">
+{% endblock %}
+
+{% block title %}
+Комментарии
+{% endblock %}
+
+{% block content %} 
+ 
+ <section>
+        <h1>Оставьте свой отзыв</h1>
+        
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="id_text">Text:</label>
+            <textarea id="id_text" name="text" required></textarea><br>
+        
+            <label for="id_mark">Mark:</label>
+            <select id="id_mark" name="mark" required>
+                {% for choice in form.mark.field.choices %}
+                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                {% endfor %}
+            </select><br>
+            <input type="submit" value="Save">
+        </form>
+        <input type="button" value="back" onclick="history.back()"> 
+    </section>
+
+{% endblock %}

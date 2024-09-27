@@ -1,0 +1,35 @@
+{% extends "store/base.html" %}
+{% load static %}
+{% load mathfilters %}
+
+{% block extra_head %}
+<meta name="description" content="Страница с отзывами">
+<meta name="keywords" content="Bookshop, book, shop, review">
+<meta name="author" content="Zhgutov Evgeniy">
+{% endblock %}
+
+{% block title %}
+Отзывы
+{% endblock %}
+
+
+{% block content %}
+
+<h1 align="center">Отзывы</h1>
+
+<section itemscope itemtype="https://schema.org/Review">
+    {% for comment in comments %}
+        <section>
+            <h2 itemprop="author">{{comment.author.first_name}}</h2>
+            <p itemprop="reviewBody">{{comment.text}}</p>
+            <p itemprop="reviewRating">
+                {{ "★ "|mul:comment.mark}}
+                {{ 5|sub:comment.mark|mul:"☆ " }}
+            </p>
+            <p itemprop="datePublished">{{comment.date}}</p>
+        </section>
+    {% endfor %}
+    <a href="create/">Добавить отзыв</a>
+</section>
+
+{% endblock %}

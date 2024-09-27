@@ -1,0 +1,47 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<meta name="description" content="Страница с купонами">
+<meta name="keywords" content="Bookshop, book, shop, coupons">
+<meta name="author" content="Zhgutov Evgeniy">
+{% endblock %}
+
+{% block title %}
+Купоны
+{% endblock %}
+
+{% block content %}
+
+<h1 align="center">Текущие купоны</h1>
+
+<section itemscope itemtype="https://schema.org/Order">
+    <section>
+        <h2>Активные купоны:</h2>
+        <ul>
+            {% for coupon in active_coupons %}
+            <li><p>{{ coupon.name }}</p>
+                <ul>
+                <li><p itemprop="discountCode">{{ coupon.code }}</p></li>
+                <li><p itemprop="discount"><div>{{ coupon.discount }}%</div></p></li>
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+    <hr/>
+    <section >
+        <h2>Купоны в архиве:</h2>
+        <ul>
+            {% for coupon in disabled_coupons %}
+                <li><p><s>{{ coupon.name }}</p></h2>
+                <ul>
+                    <li><p itemprop="discountCode" >{{ coupon.code }}</p></li>
+                    <li><p itemprop="discount" ><div>{{ coupon.discount }}%</div></p></li>
+                </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+</section>
+{% endblock %}

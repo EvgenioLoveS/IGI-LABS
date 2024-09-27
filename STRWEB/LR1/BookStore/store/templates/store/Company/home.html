@@ -1,0 +1,64 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<meta name="description" content="Страница главная">
+<meta name="keywords" content="Bookshop, book, shop">
+<meta name="author" content="Zhgutov Evgeniy">
+{% endblock %}
+
+{% block title %}
+    Главная
+{% endblock %}
+
+{% block content %}
+
+    <div style="position: absolute; top: 50px; right: 30px; text-align: right;">
+        <p><i> Текущее время: {{ time }} </i></p>
+        <p><i>Таймзона пользователя: {{ user_timezone }}</i></p>
+    </div>
+
+    <h1 align="center">Главная</h1>
+
+    <hr/>
+    <h2>Последняя статья:</h2>
+    <article itemscope itemtype="https://schema.org/Article">
+        {% if last_article.img %}
+            <img src="{{ last_article.img.url }}" alt="{{ last_article.title }}" style="max-width: 100%; height: auto;" />
+        {% endif %}
+        <p dir="ltr" itemprop="name"><b>{{ last_article.title }}</b></p>
+        <p dir="ltr" itemprop="articleBody">{{ last_article.short }}</p>
+        <p dir="ltr" itemprop="datePublished">{{ last_article.date }}</p>
+    </article>
+    <hr/>
+
+    <!-- Логотип компании -->
+    <section>
+        <h2>Логотип компании</h2>
+        <div>
+            <img src="{{ company.logo.url }}" alt="Логотип компании {{ company.name }}">
+        </div>
+    </section>
+
+    <hr/>
+    <div style="text-align: center; margin: 20px 0;">
+        <img src="/media/banners/banner.jpg" alt="Наш баннер" style="width: 100%; height: auto;"/>
+    </div>
+    <hr/>
+
+
+    <section itemscope itemtype="https://schema.org/Organization">
+        <h2>Партнеры</h2>
+        <div class="partners">
+            {% for partner in partners %}
+                <div class="partner">
+                    <a itemprop="sponsor" href="{{ partner.link }}" target="_blank">
+                        <img  height="200" src="{{ partner.img.url }}" alt="{{ partner.company_name }}">
+                        <p>{{ partner.company_name }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+{% endblock %}

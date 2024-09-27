@@ -1,0 +1,15 @@
+{% extends "store/base.html" %}
+
+{% block extra_head %}
+<meta name="description" content="Страница с окончанием заказа">
+<meta name="keywords" content="Bookshop, book, shop, order">
+<meta name="author" content="Zhgutov Evgeniy">
+{% endblock %}
+
+{% block title %}Thank you{% endblock %}
+
+{% block content %}
+    <h1>Спасибо за покупку</h1>
+    <p>Ваш заказ успешно оформлен. Номер вашего заказа:
+        <strong>{{ order.id }}</strong>.</p>
+{% endblock %}

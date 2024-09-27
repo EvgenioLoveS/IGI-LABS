@@ -1,0 +1,30 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<meta name="description" content="Страница со статьями">
+<meta name="keywords" content="Bookshop, book, shop, articles">
+<meta name="author" content="Zhgutov Evgeniy">
+{% endblock %}
+
+{% block title %}
+Статьи
+{% endblock %}
+
+{% block content %}
+
+<h1 align="center">Статьи</h1>
+
+<section itemscope itemtype="https://schema.org/Article">
+    {% for article in articles %}
+    <article>
+        <h2 itemprop="name">{{article.title}}</h2>
+        <img itemprop="image" src="{{article.img.url}}" width="400" height="300">
+        <p>{{article.short}}</p>
+        <p dir="ltr" itemprop="datePublished">{{article.date}}</p>
+        <a href="{{article.id}}/">Читать далее</a>
+    </article>
+    {% endfor %}
+</section>
+
+{% endblock %}
