@@ -7877,3 +7877,5 @@ DEBUG:2024-09-20 19:32:34,079:Books fetched: 7 books.
 INFO:2024-09-20 19:32:37,025:Rendering home page
 DEBUG:2024-09-20 19:37:22,477:Loaded backend Agg version v2.2.
 INFO:2024-09-20 19:37:24,399:Rendering home page
+DEBUG:2024-09-27 16:19:47,396:Loaded backend Agg version v2.2.
+INFO:2024-09-27 16:19:52,284:Rendering home page
