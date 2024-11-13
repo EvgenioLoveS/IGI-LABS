@@ -1,0 +1,24 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<meta name="description" content="Редактирование профиля пользователя">
+<meta name="keywords" content="Bookshop, profile, edit">
+<meta name="author" content="Zhgutov Evgeniy">
+<link href="{% static 'css/book_create.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+Редактировать профиль
+{% endblock %}
+
+{% block content %}
+<h2>Редактировать профиль</h2>
+<section class="order-page">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+            <input type="submit" value="Сохранить изменения">
+    </form>
+</section>
+{% endblock %}

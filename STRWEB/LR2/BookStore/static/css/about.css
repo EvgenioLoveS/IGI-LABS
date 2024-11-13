@@ -1,0 +1,296 @@
+.company-info {
+    overflow: auto;
+    /* Убедитесь, что контейнер обтекает дочерние элементы */
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    float: right;
+    /* Логотип будет справа */
+    margin-left: 20px;
+    /* Отступ между логотипом и текстом */
+}
+
+.logo-img {
+    display: block;
+    max-width: 150px;
+    /* Ограничение ширины логотипа */
+    transform: scale(1.1);
+    /* Применение трансформации для логотипа */
+    transition: transform 0.3s;
+}
+
+.logo-img:hover {
+    transform: scale(1.2);
+    /* Эффект увеличения при наведении */
+}
+
+.text-container {
+    overflow: hidden;
+    /* Чтобы текст не выходил за пределы */
+}
+
+.company-name {
+    font-size: 48px;
+    /* Увеличьте размер шрифта */
+    font-family: 'Georgia', serif;
+    /* Измените шрифт */
+    font-weight: bold;
+    /* Сделайте текст жирным */
+    text-transform: uppercase;
+    /* Все буквы заглавные */
+    color: #e4cfa1;
+    /* Измените цвет текста */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    /* Добавьте тень */
+    margin: 0;
+    /* Уберите отступы */
+}
+
+h1 {
+    margin: 20px 0;
+    color: #333;
+}
+
+
+h2 {
+    color: #444;
+}
+
+section {
+    margin: 20px auto;
+    padding: 15px;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #444;
+}
+
+.company-video {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.history section {
+    border: 1px solid #ccc;
+    /* Рамка вокруг блока */
+    border-radius: 8px;
+    /* Скругление углов */
+    padding: 15px;
+    /* Отступ внутри блока */
+    margin-bottom: 15px;
+    /* Отступ между блоками */
+    background-color: #f9f9f9;
+    /* Цвет фона блока */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Тень */
+}
+
+.history dt {
+    font-weight: bold;
+    color: #007bff;
+    /* Цвет для заголовка года */
+    margin-bottom: 5px;
+    /* Отступ снизу */
+}
+
+.history dd {
+    margin-left: 20px;
+    /* Отступ для описания */
+    color: #666;
+    /* Цвет для описания */
+}
+
+.requisites {
+    font-weight: bold;
+    /* Выделение реквизитов шрифтом */
+    background-color: #f9f9f9;
+    /* Светлый фон для блока */
+    padding: 15px;
+    /* Отступы внутри блока */
+    border: 1px solid #ccc;
+    /* Рамка вокруг блока */
+    border-radius: 8px;
+    /* Скругление углов */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Тень */
+    margin-top: 20px;
+    /* Отступ сверху */
+}
+
+.requisites p {
+    margin: 5px 0;
+    /* Отступы между строками */
+    color: #333;
+    /* Цвет текста */
+}
+
+.requisites a {
+    color: #007bff;
+    /* Цвет ссылок */
+    text-decoration: underline;
+    /* Подчеркивание ссылок */
+}
+
+.requisites a:hover {
+    text-decoration: none;
+    /* Убираем подчеркивание при наведении */
+    color: #0056b3;
+    /* Темнее при наведении */
+}
+
+
+.certificate-container {
+    display: flex;
+    justify-content: center;
+    /* Центрирование по горизонтали */
+    width: 100%;
+    /* Занимает всю ширину страницы */
+}
+
+.certificate {
+    width: 800px;
+    height: 600px;
+    background-size: cover;
+    border: 40px solid transparent;
+    /* Отображение границ */
+    -moz-border-image: url('/media/certificate/10433221.jpg') 150 stretch;
+    border-image: url('/media/certificate/10433221.jpg') 150 stretch;
+    /* Замените на путь к вашему изображению границы */
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #333;
+
+}
+
+.certificate p {
+    color: #333;
+}
+
+.certificate p::first-letter {
+    font-size: 1em;
+    color: #333;
+}
+
+.certificate-title {
+    font-size: 36px;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: #2270e6;
+    /* Цвет заголовка */
+}
+
+.certificate-subtitle {
+    font-size: 24px;
+    font-family: 'Arial', sans-serif;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.recipient-name {
+    font-size: 30px;
+    font-family: 'Georgia', serif;
+    margin: 10px 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.certificate-content {
+    font-size: 20px;
+    font-family: 'Arial', sans-serif;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.course-name {
+    font-size: 22px;
+    font-family: 'Georgia', serif;
+    margin: 10px 0;
+    text-align: center;
+    font-style: italic;
+}
+
+.certificate-date {
+    font-size: 18px;
+    font-family: 'Arial', sans-serif;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.signature {
+    margin-top: 40px;
+    text-align: center;
+}
+
+
+.back-to-top {
+    display: inline-block;
+    padding: 10px 20px; /* Отступы */
+    font-size: 16px; /* Размер шрифта */
+    color: #fff; /* Цвет текста */
+    background-color: #007bff; /* Цвет фона */
+    border: none; /* Без рамки */
+    border-radius: 5px; /* Скругленные углы */
+    text-decoration: none; /* Убираем подчеркивание */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Тень */
+    transition: background-color 0.3s, transform 0.3s; /* Плавные переходы */
+}
+
+.back-to-top:hover {
+    background-color: #0056b3; /* Темнее при наведении */
+    transform: scale(1.05); /* Эффект увеличения при наведении */
+}
+
+.back-to-top:active {
+    transform: scale(0.95); /* Эффект уменьшения при нажатии */
+}
+
+/* Медиа-запрос для планшетов и небольших устройств (769px - 992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+    .company-info {
+        padding: 20px;
+    }
+
+    .logo-container {
+        margin-left: 20px;
+    }
+
+    .logo-img {
+        max-width: 140px;
+    }
+
+    .company-name {
+        font-size: 40px;
+    }
+
+    .certificate-container {
+        width: 80%;
+    }
+
+    .certificate {
+        width: 80%;
+        height: auto;
+    }
+
+    .back-to-top {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+}

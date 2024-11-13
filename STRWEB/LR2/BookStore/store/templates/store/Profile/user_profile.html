@@ -1,0 +1,51 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<meta name="description" content="Страница профиля пользователя">
+<meta name="keywords" content="Bookshop, profile, information">
+<meta name="author" content="Zhgutov Evgeniy">
+<link href="{% static 'css/user_profile.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+Профиль пользователя {{ user_profile.username }}
+{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <h2>Профиль {{ user_profile.username }}</h2>
+
+    <div class="avatar-container">
+        {% if user_profile.avatar %}
+            <img src="{{ user_profile.avatar.url }}" alt="Аватар {{ user_profile.username }}" class="avatar_profile"/>
+        {% else %}
+            <img src="{% static 'images/default_avatar.png' %}" alt="Аватар по умолчанию" class="avatar_profile"/>
+        {% endif %}
+    </div>
+
+    <div class="info-container">
+        <h3>Основная информация</h3>
+        <p><strong>Имя:</strong> {{ user_profile.first_name }}</p>
+        <p><strong>Фамилия:</strong> {{ user_profile.last_name }}</p>
+        <p><strong>Дата рождения:</strong> {{ user_profile.date_of_birth }}</p>
+        <p><strong>Email:</strong> {{ user_profile.email }}</p>
+        <p><strong>Телефон:</strong> {{ user_profile.phone_number }}</p>
+
+        <!-- Выводим статус пользователя -->
+        <p><strong>Статус пользователя:</strong>
+            {% if user_profile.is_superuser %}
+                Администратор
+            {% elif user_profile.is_staff %}
+                Сотрудник
+            {% else %}
+                Обычный пользователь
+            {% endif %}
+        </p>
+    </div>
+
+    <div class="edit-profile">
+        <a href="{% url 'store:profile_edit' username=user_profile.username %}">Редактировать профиль</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+/* Общие стили для страницы */
+.order-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили заголовков */
+.order-page h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.order-page h3 {
+    font-size: 1.5em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Стили списка заказа */
+.order-page ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.order-page ul li {
+    font-size: 1.2em;
+    color: #333;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-page ul li span {
+    font-weight: bold;
+    color: #3683d6;
+}
+
+/* Стили для купона */
+.order-page ul li:last-child {
+    color: #d9534f;
+}
+
+.order-page p {
+    font-size: 1.3em;
+    color: #333;
+    font-weight: bold;
+    text-align: right;
+}
+
+/* Стили формы */
+.order-page form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-page form p {
+    text-align: center;
+}
+
+.order-page input[type="submit"] {
+    background-color: #3683d6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.order-page input[type="submit"]:hover {
+    background-color: #0056b3;
+}

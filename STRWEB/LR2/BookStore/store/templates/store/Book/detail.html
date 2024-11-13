@@ -1,0 +1,52 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<meta name="description" content="Страница с книгой">
+<meta name="keywords" content="Bookshop, book, shop">
+<meta name="author" content="Zhgutov Evgeniy">
+<link href="{% static 'css/book_detail.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block title %}
+{{ book.title }}
+{% endblock %}
+
+{% block content %}
+<div class="product-detail">
+    <div class="image-container">
+        <img src="{% if book.image %}{{ book.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="{{ book.title }}">
+        <h1>{{ book.title }}</h1>
+        <div class="book-summary">
+            {{ book.summary|linebreaks }}
+        </div>
+        <h2>
+            <a href="{{ book.genre.get_absolute_url }}">{{ book.genre }}</a>
+        </h2>
+        <p class="price">${{ book.cost }}</p>
+    </div>
+
+    {% if user.is_authenticated %}
+    <div class="add-product">
+        <form action="{% url 'cart:cart_add' book.id %}" method="post">
+            {{ cart_book_form }}
+            {% csrf_token %}
+            <input type="submit" value="Add to cart">
+        </form>
+    </div>
+    {% endif %}
+
+    {% if user.is_staff %}
+    <div class="admin-options">
+        <p><a href="{% url 'store:book_edit' book.id %}">Edit</a> | <a href="{% url 'store:book_delete' book.id %}">Remove</a></p>
+    </div>
+    {% endif %}
+    
+    <div class="joke-of-the-day">
+        <p><em>Joke of the Day:</em></p>
+        <p>{{ joke }}</p>
+    </div>
+</div>
+
+{% endblock %}

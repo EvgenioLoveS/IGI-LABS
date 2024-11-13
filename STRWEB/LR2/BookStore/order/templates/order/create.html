@@ -1,0 +1,41 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<meta name="description" content="Страница с созданием заказа">
+<meta name="keywords" content="Bookshop, book, shop, order">
+<meta name="author" content="Zhgutov Evgeniy">
+<link href="{% static 'css/order_creation.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block title %}Оформление заказа{% endblock %}
+
+{% block content %}
+<div class="order-page">
+    <h1>Оформление заказа</h1>
+    <div>
+        <h3>Ваш заказ</h3>
+        <ul>
+            {% for item in cart %}
+                <li>
+                    {{ item.quantity }}x {{ item.product.name }}
+                    <span>${{ item.total_price }}</span>
+                </li>
+            {% endfor %}
+            {% if cart.coupon %}
+                <li>
+                    "{{ cart.coupon.code }}" (Скидка: {{ cart.coupon.discount }}%)
+                    <span>- ${{ cart.get_discount|floatformat:"2" }}</span>
+                </li>
+            {% endif %}
+        </ul>
+        <p>Итого: ${{ cart.get_total_price_after_discount|floatformat:"2" }}</p>
+    </div>
+    <form action="." method="POST">
+        {{ form.as_p }}
+        <p><input type="submit" value="Завершить заказ"></p>
+        {% csrf_token %}
+    </form>
+</div>
+{% endblock %}

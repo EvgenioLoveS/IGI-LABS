@@ -1,0 +1,55 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<meta name="description" content="Страница с книгами">
+<meta name="keywords" content="Bookshop, book, shop">
+<meta name="author" content="Zhgutov Evgeniy">
+<link href="{% static 'css/book_list.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+{% if genre %}{{ genre.name }}{% else %}Books{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="categories">
+    <h3>Genres</h3>
+    <ul>
+        <li {% if not genre %}style="font-weight: bold;"{% endif %}>
+            <a href="{% url 'store:book_list' %}">Все</a>
+        </li>
+        {% for c in genres %}
+        <li {% if genre.name == c.name %}style="font-weight: bold;"{% endif %}>
+            <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="book-list-container">
+    <h1>{% if genre %}{{ genre.name }}{% else %}Книги{% endif %}
+        {% if user.is_staff %}
+        <a href="{% url 'store:book_create' %}">Добавить книгу</a>
+        {% endif %}
+        <form action="{{ request.get_full_path }}" method="get">
+            <button type="submit" name="sort" value="ascending">Сортировать по возрастанию</button>
+            <button type="submit" name="sort" value="descending">Сортировать по убыванию</button>
+        </form>
+    </h1>
+
+    <section id="main" class="grid-container">
+        {% for book in books %}
+        <div class="item">
+            <a href="{{ book.get_absolute_url }}">
+                <img src="{% if book.image %}{{ book.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="{{ book.title }}">
+            </a>
+            <div class="item-info">
+                <a href="{{ book.get_absolute_url }}">{{ book.title }}</a>
+                <br>
+                ${{ book.cost }}
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,149 @@
+/* Основной контейнер для таблицы */
+.cart-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f3f4f6; /* Светло-серый фон */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для заголовка таблицы */
+.cart-container table caption {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2c3e50; /* Темно-серый текст */
+    margin-bottom: 10px; /* Отступ снизу */
+    text-align: center;
+}
+
+/* Заголовок таблицы */
+.cart-container h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #2c3e50; /* Темно-серый цвет */
+}
+
+/* Таблица */
+.cart-container table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    text-align: center;
+}
+
+/* Строки и ячейки таблицы */
+.cart-container th,
+.cart-container td {
+    padding: 15px;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+}
+
+.cart-container th {
+    background-color: #34495e; /* Темно-серый фон заголовков */
+    color: white; /* Белый текст */
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.cart-container td {
+    background-color: #ffffff; /* Белый фон для нечетных строк */
+    color: #333; /* Темно-серый текст */
+}
+
+/* Чередование цветов строк для лучшей читаемости */
+.cart-container tbody tr:nth-child(even) {
+    background-color: #e8f6ff; /* Светло-голубой фон для четных строк */
+}
+
+/* Стили для пустых ячеек */
+.cart-container td:empty {
+    background-color: #f0f0f0; /* Светло-серый для пустых ячеек */
+}
+
+/* Стили для изображения книги */
+.cart-container img {
+    max-width: 80px;
+    border-radius: 5px;
+}
+
+/* Кнопки в форме */
+.cart-container input[type="submit"] {
+    background-color: #3498db; /* Голубой фон для кнопок */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cart-container input[type="submit"]:hover {
+    background-color: #2980b9; /* Темно-голубой при наведении */
+}
+
+/* Ссылки для удаления и других действий */
+.cart-container a {
+    color: #3498db; /* Голубой цвет ссылок */
+    text-decoration: none;
+}
+
+.cart-container a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .cart-container {
+        padding: 10px;
+    }
+
+    .cart-container table th,
+    .cart-container table td {
+        padding: 10px;
+    }
+}
+
+/* Стили для первого элемента в таблице (первый столбец) */
+.cart-container table th:first-child,
+.cart-container table td:first-child {
+    background-color: #dff0ff; /* Светло-голубой фон */
+    font-weight: bold;
+    color: #005b7f; /* Темно-синий текст */
+}
+
+/* Стили для последнего элемента в таблице (последний столбец) */
+.cart-container table th:last-child,
+.cart-container table td:last-child {
+    background-color: #fbe9e7; /* Светло-розовый фон */
+    color: #d84315; /* Темно-оранжевый текст */
+    font-style: italic;
+}
+
+/* Стили для третьего столбца */
+.cart-container table th:nth-child(3),
+.cart-container table td:nth-child(3) {
+    background-color: #e6f7e7; /* Светло-зеленый фон */
+    color: #2c8a2f; /* Зеленый текст */
+}
+
+/* Чередование цветов строк для лучшей читаемости */
+.cart-container tbody tr:nth-child(even) {
+    background-color: #f0f8ff; /* Светло-голубой фон для четных строк */
+}
+
+/* Стиль для первого элемента списка */
+.cart-container ul li:first-child {
+    background-color: #c8e6c9; /* Светло-зеленый фон */
+    font-weight: bold;
+}
+
+/* Стиль для последнего элемента списка */
+.cart-container ul li:last-child {
+    background-color: #ffccbc; /* Светло-оранжевый фон */
+    font-style: italic;
+}

@@ -1,0 +1,117 @@
+.faq-section {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto; /* Центрирование блока на странице */
+    background-color: #e4cfa1; /* Легкий фоновый цвет для выделения */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Легкая тень */
+}
+
+
+.faq-question {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: 15px 0;
+    color: #333; /* Цвет заголовков вопросов */
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+
+.faq-answer {
+    font-size: 1em;
+    margin: 5px 0 15px 0;
+    color: #555;
+}
+
+
+
+.faq-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007BFF; /* Цвет не посещенных ссылок */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.faq-link:visited {
+    color: #551A8B; /* Цвет для посещенных ссылок */
+}
+
+.faq-link:hover {
+    color: #0056b3; /* Цвет ссылки при наведении курсора */
+}
+
+.faq-link:active {
+    color: #FF4500; /* Цвет ссылки при нажатии */
+}
+
+.faq-link:focus {
+    outline: 2px dashed #992612; /* Окантовка при фокусе */
+    outline-offset: 4px; /* Отступ от края ссылки */
+}
+
+
+.faq-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+}
+
+
+/* Стили для планшетов (ширина от 768px до 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .faq-section {
+        padding: 15px;
+        max-width: 700px;
+    }
+
+    .faq-question {
+        font-size: 1.2em;
+    }
+
+    .faq-answer {
+        font-size: 0.95em;
+    }
+
+    .faq-item {
+        margin-bottom: 15px;
+        padding: 12px;
+    }
+
+    .faq-link {
+        font-size: 0.95em;
+    }
+}
+
+/* Стили для мобильных устройств (ширина до 767px) */
+@media (max-width: 767px) {
+    .faq-section {
+        padding: 10px;
+        max-width: 100%;
+        margin: 0 10px;
+    }
+
+    .faq-question {
+        font-size: 1.1em;
+        margin: 10px 0;
+    }
+
+    .faq-answer {
+        font-size: 0.9em;
+    }
+
+    .faq-item {
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+
+    .faq-link {
+        font-size: 0.9em;
+    }
+}

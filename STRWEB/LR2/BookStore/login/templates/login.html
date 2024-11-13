@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="description" content="Страница с входом">
+        <meta name="keywords" content="Bookshop, book, shop, login">
+        <meta name="author" content="Zhgutov Evgeniy">
+        <link href="{% static 'css/login.css' %}" rel="stylesheet"> 
+
+        <title>Login</title>
+    </head>
+    <body>
+        <div class="login-container">
+            <h2>Авторизация</h2>
+            <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Sign in</button>
+            </form>
+        </div>
+        <div class="quote-container">
+            <p>Quote for you: <q lang="en" cite="https://favqs.com/api/qotd">{{ quote }}</q></p>
+            <p>Цитата для вас: <q lang="ru" cite="https://favqs.com/api/qotd">{{ quote }}</q></p>
+
+        </div>
+    </body>
+</html>

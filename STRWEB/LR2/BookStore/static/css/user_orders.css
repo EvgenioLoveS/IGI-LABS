@@ -1,0 +1,25 @@
+
+/* Стили для таблицы */
+table {
+    width: 100%; /* Ширина таблицы на всю ширину контейнера */
+    border-collapse: collapse; /* Убираем пробелы между ячейками */
+    margin: 0 auto; /* Центрируем таблицу */
+    background-color: #fff; /* Белый фон таблицы */
+    border-radius: 8px; /* Сглаженные углы */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+th, td {
+    padding: 15px; /* Отступы внутри ячеек */
+    text-align: center; /* Выравнивание текста по центру */
+    border-bottom: 1px solid #ccc; /* Граница между строками */
+}
+
+th {
+    background-color: #3498db; /* Цвет фона для заголовков */
+    color: white; /* Цвет текста заголовков */
+}
+
+tr:hover {
+    background-color: #f1f1f1; /* Цвет фона строки при наведении */
+}

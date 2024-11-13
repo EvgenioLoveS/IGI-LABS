@@ -1,0 +1,156 @@
+/* Основные стили для страницы с деталями продукта */
+.product-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #fafafa; /* Мягкий светло-серый фон */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Более выраженная тень */
+    max-width: 900px;
+    margin: 20px auto;
+    transition: transform 0.3s ease;
+}
+
+.product-detail:hover {
+    transform: scale(1.02); /* Легкое увеличение карточки при наведении */
+}
+
+/* Стили для контейнера с изображением */
+.image-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.image-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+.image-container h2 a {
+    font-size: 1.3em;
+    color: #555;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.image-container h2 a:hover {
+    color: #007bff;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.05); /* Легкое увеличение изображения при наведении */
+}
+
+.image-container .price {
+    font-size: 2em;
+    color: #e63946; /* Насыщенный красный цвет для цены */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Стили для формы добавления в корзину */
+.add-product form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.add-product input[type="submit"] {
+    background-color: #2d6cdf;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-product input[type="submit"]:hover {
+    background-color: #003580;
+    transform: scale(1.05);
+}
+
+/* Стили для текста описания книги */
+.book-summary {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.8;
+    margin-top: 20px;
+    text-align: justify;
+}
+
+/* Стили для блока с шуткой дня */
+.joke-of-the-day {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #ffefdb; /* Светлый фон для выделения блока */
+    border: 1px solid #f9c74f; /* Обводка желтого цвета */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-style: italic;
+    color: #333;
+    position: relative; /* Для позиционирования иконки */
+}
+
+
+.joke-of-the-day p {
+    margin: 0; /* Убираем отступы у параграфа */
+    font-size: 1.2em; /* Увеличиваем размер шрифта */
+    line-height: 1.5; /* Увеличиваем межстрочный интервал */
+}
+
+/* Стили для административных опций (только для персонала) */
+.admin-options {
+    margin-top: 20px;
+}
+
+.admin-options a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.admin-options a:hover {
+    color: #0056b3;
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 768px) {
+    .product-detail {
+        padding: 15px;
+    }
+
+    .image-container h1 {
+        font-size: 1.8em;
+    }
+
+    .image-container h2 a {
+        font-size: 1em;
+    }
+
+    .add-product form {
+        max-width: 100%;
+    }
+}

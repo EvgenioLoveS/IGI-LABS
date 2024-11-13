@@ -1,0 +1,50 @@
+/* Контейнер для статьи */
+.article_detail {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Блок с информацией (заголовок, дата, изображение) */
+.article_detail-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Заголовок */
+.article_detail-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+/* Изображение */
+.article-detail-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Дата публикации */
+.article_detail-date {
+    font-size: 16px;
+    color: #888;
+}
+
+/* Текст статьи */
+.article_detail-text {
+    columns: 3 300px; /* Разбиваем текст на 3 колонки, каждая шириной 300px */
+    column-gap: 30px; /* Устанавливаем промежуток между колонками */
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+    hyphens: auto; /* Автоматические переносы длинных слов */
+}
+
+.article_detail-text p {
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,131 @@
+.article-cont {
+    display: grid;
+    gap: 25px;
+}
+
+.article_list {
+    display:block;
+    width: 900px;
+    max-height: 900px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    position: relative;
+    background: linear-gradient(to bottom right, #817777, #e4cfa1);
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.article_list:hover {
+    transform: scale(1.02); /* Увеличиваем размер блока при наведении */
+    background-color: #e8e8e8; /* Изменяем цвет фона */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Увеличиваем тень при наведении */
+}
+
+.article_list p {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.article_list-header {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+
+.article_list-content {
+    padding: 1px;
+}
+
+.article_list-footer {
+    text-align: right;
+    margin-top: 5px;
+}
+
+.article_list-footer p {
+    font-style: italic;
+    color: #888;
+}
+
+.article_list-btn {
+    display: inline-block;
+    padding: 5px 20px; /* Регулируйте отступы в зависимости от ваших предпочтений */
+    background-color: #007bff; /* Цвет фона кнопки */
+    color: #fff; /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание ссылки */
+    border: none; /* Убираем границу */
+    border-radius: 7px; /* Закругляем углы */
+    cursor: pointer; /* Задаем курсор в виде указателя при наведении */
+    font-size: 16px; /* Размер шрифта */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space:nowrap;
+  }
+  
+.article_list-btn:hover {
+    background-color: #0056b3; /* Цвет фона кнопки при наведении */
+    color: #fff; 
+  }
+
+.article_list img {
+  width: 100%; /* Изображение будет занимать всю ширину блока */
+  height: auto; /* Сохранение пропорций изображения */
+  border-radius: 10px; /* Закругленные углы */
+  object-fit: cover; /* Центрирование и обрезка изображения, если оно выходит за границы */
+  margin-bottom: 15px;
+  transition: opacity 0.3s ease;
+}
+
+.article_list img:hover {
+    opacity: 0.8; /* Легкое затемнение при наведении */
+}
+
+/* Стили для планшетов (ширина от 768px до 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .article_list {
+        width: 500px;
+        max-height: 500px;
+    }
+
+    .article_list-btn {
+        padding: 8px 20px;
+        font-size: 16px;
+    }
+
+    .article_list img {
+        height: 300px;
+    }
+}
+
+/* Стили для мобильных устройств (ширина до 767px) */
+@media (max-width: 767px) {
+    .article-cont {
+        display: block;
+        padding: 0 10px;
+    }
+
+    .article_list {
+        width: 100%;
+        max-height: none;
+        padding: 15px;
+    }
+
+    .article_list-header {
+        font-size: 24px;
+    }
+
+    .article_list-btn {
+        padding: 5px 15px;
+        font-size: 14px;
+    }
+
+    .article_list img {
+        height: auto;
+    }
+
+    .article_list-footer p {
+        font-size: 12px;
+    }
+}

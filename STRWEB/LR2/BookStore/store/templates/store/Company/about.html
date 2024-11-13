@@ -1,0 +1,86 @@
+
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<meta name="description" content="Страница с информацией о компании">
+<meta name="keywords" content="Bookshop, company, about">
+<meta name="author" content="Zhgutov Evgeniy">
+<link href="{% static 'css/about.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+О компании
+{% endblock %}
+
+{% block content %}
+<a href="top" id="top"></a>
+<h1>Информация о компании</h1>
+
+<section class="company-info">
+    <div class="logo-container">
+        {% if company.logo %}
+            <img class="logo-img" src="{{ company.logo.url }}" alt="Логотип компании">
+        {% else %}
+            <p>Логотип скоро...</p>
+        {% endif %}
+    </div>
+    <div class="text-container">
+        <p itemprop="legalName" class="company-name">
+            <strong><font size="+4">{{ company.name }}</font></strong>
+        </p>
+        <p>{{ company.description }}</p>
+    </div>
+</section>
+
+<section>
+    <h2>Видео компании</h2>
+    {% if company.video %}
+        <video class="company-video" controls>
+            <source src="{{ company.video.url }}" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+    {% else %}
+        <p>Видео скоро...</p>
+    {% endif %}
+</section>
+
+<section>
+    <h2>История компании</h2>
+    <dl class="history">
+        {% for year, descriptions in history %}
+            <section>
+                <dt><time datetime="{{ year }}"><b>{{ year }}</b></time></dt>
+                {% for description in descriptions %}
+                    <dd>{{ description }}</dd>
+                {% endfor %}
+            </section>
+        {% endfor %}
+    </dl>
+</section>
+
+<section class="requisites">
+    <h2>Реквизиты компании:</h2>
+    <p>Почта: <a href="mailto:{{ contact_info.email }}" itemprop="email">{{ contact_info.email }}</a></p>
+    <p>Телефон: <a href="tel:+{{ contact_info.phone_number }}" itemprop="telephone">{{ contact_info.phone_number }}</a></p>
+</section>
+
+
+
+<div class="certificate-container">
+    <div class="certificate">
+        <h1 class="certificate-title">Сертификат</h1>
+        <p class="certificate-subtitle">Настоящим удостоверяется, что</p>
+        <h2 class="recipient-name">Жгутов Евгений Дмитриевич</h2>
+        <p class="certificate-content">успешно завершил курс</p>
+        <h3 class="course-name">"Основы книжного дела и рекомендаций"</h3>
+        <p class="certificate-date">Дата: 17 января 2018 года</p>
+        <div class="signature">
+            <p>_______________________</p>
+            <p>Подпись</p>
+        </div>
+    </div>
+</div>
+
+<a href="#top" class="back-to-top">Наверх</a>
+{% endblock %}

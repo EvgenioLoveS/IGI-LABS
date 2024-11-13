@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+header {
+    position: fixed;  
+    top: 0;           
+    left: 0;          
+    width: 98%;    
+    z-index: 1000;    
+    background-color: #2c2c2c; 
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    gap: 10px; 
+}
+
+nav a {
+    font-family: 'Bodoni Moda', cursive;
+    text-decoration: none;
+    color: #fff;
+    background-color:#2c2c2c;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #6e6e6e; 
+    color: #e4cfa1;
+    cursor: pointer;
+}
+
+.user-info {
+    display: flex;
+    color: #ffffff;
+    font-weight: bold;
+    align-items: center;
+    gap: 10px; 
+}
+
+/* Фоновый стиль страницы */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Bodoni Moda', sans-serif;
+    background-color: #fbe9e7; 
+}
+
+/* Стили для footer */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #36354e; 
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px; 
+}
+
+footer nav a {
+    font-family: 'Bodoni Moda', cursive;
+    text-decoration: none;
+    color: #fff;
+    background-color:#515151;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+
+}
+
+footer nav a:hover {
+    background-color: #ffffff33; /* Прозрачный белый на наведении */
+    color: #e4cfa1;
+}
+
+h1, h3 {
+    font-family: 'Roboto', sans-serif; 
+    color: #000000; 
+    text-transform: uppercase; 
+    text-align: center;
+    margin: 20px 0;
+    letter-spacing: 1.5px;
+}
+
+h2{
+    font-family: 'Bodoni Moda', serif; 
+    font-size: 1.5em;
+    color: #333333; 
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #e4cfa1;
+    margin: 10px auto 0;
+}
+
+.background-wrapper {
+    background-color: #e4cfa1; 
+    min-height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.main-content {
+    margin-top: 100px;
+    background-color: white; 
+    border-radius: 20px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    max-width: 1300px;
+    width: 100%;
+    padding: 40px;
+}
+
+
+@media (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+    header nav a {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header nav a {
+        font-size: 0.8em;
+        padding: 8px;
+    }
+}
+
+.username-link {
+    font-family: 'Roboto', sans-serif; /* Выбираем читаемый шрифт */
+    font-size: 1.2em;
+    color: #ffffff; /* Белый текст */
+    font-weight: bold;
+    text-decoration: none;
+    margin-right: 20px; /* Отступ справа */
+    transition: color 0.3s;
+}
+
+.username-link:hover {
+    color: #e4cfa1; /* Меняем цвет на светло-золотистый при наведении */
+}
+
+/* Стили для кнопки выхода */
+.logout-button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #6e6e6e; /* Серый фон для кнопки */
+    padding: 8px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #be0000; /* Темно-красный фон при наведении */
+    color: #ffffff; /* Цвет текста остаётся белым */
+}
+
+/* Стили для ссылок на авторизацию */
+.auth-link {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 15px;
+    transition: color 0.3s;
+}
+
+.auth-link:hover {
+    color: #e4cfa1; /* Изменение цвета текста при наведении */
+}
+
+
+.cart {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #6e6e6e; /* Фон корзины */
+    padding: 10px 15px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-right: 20px; /* Отступ справа */
+    transition: background-color 0.3s;
+}
+
+.cart a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.cart a:hover {
+    color: #e4cfa1; /* Изменение цвета текста при наведении */
+}
+
+.cart p {
+    margin: 0;
+}
+
+.cart:hover {
+    background-color: #515151; /* Более тёмный фон при наведении */
+}
+
+.avatar {
+    width: 35px; /* Задайте нужную ширину */
+    height: 35px; /* Задайте нужную высоту */
+    border-radius: 50%; /* Круглая форма */
+    margin-right: 10px; /* Отступ справа */
+}
+
+.user-avatar-username {
+    display: flex; /* Используем флекс для выравнивания */
+    align-items: center; /* Выравниваем по центру по вертикали */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    header {
+        padding: 10px;
+        flex-direction: column; /* Вертикальное расположение элементов */
+    }
+
+    header nav {
+        flex-direction: column; /* Вертикальное расположение ссылок */
+        gap: 5px; /* Уменьшение промежутков между ссылками */
+    }
+
+    h1, h2, h3 {
+        font-size: 1.5em; /* Уменьшение размера заголовков */
+    }
+
+    .main-content {
+        padding: 20px; /* Уменьшение отступов */
+    }
+
+    .cart {
+        padding: 8px 10px; /* Уменьшение отступов для корзины */
+    }
+
+    .logout-button {
+        padding: 6px 10px; /* Уменьшение отступов для кнопки выхода */
+    }
+
+    footer {
+        padding: 15px; /* Уменьшение отступов в футере */
+        flex-direction: column; /* Вертикальное расположение элементов футера */
+        align-items: center; /* Выравнивание элементов по центру */
+    }
+
+    footer nav a {
+        margin-bottom: 5px; /* Уменьшение промежутков между ссылками */
+    }
+
+    footer h2 {
+        font-size: 1.2em; /* Уменьшение размера заголовка h2 в футере */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 5px; /* Уменьшение отступов */
+    }
+
+    header nav a {
+        font-size: 0.9em; /* Уменьшение размера шрифта для ссылок */
+        padding: 6px; /* Уменьшение отступов для ссылок */
+    }
+
+    h1 {
+        font-size: 1.2em; /* Уменьшение размера заголовка h1 */
+    }
+
+    h2 {
+        font-size: 1.3em; /* Уменьшение размера заголовка h2 */
+    }
+
+    h3 {
+        font-size: 1.1em; /* Уменьшение размера заголовка h3 */
+    }
+
+    .main-content {
+        padding: 15px; /* Уменьшение отступов */
+    }
+
+    .cart {
+        font-size: 0.9em; /* Уменьшение размера текста в корзине */
+        padding: 6px 8px; /* Уменьшение отступов для корзины */
+    }
+
+    .logout-button {
+        font-size: 0.9em; /* Уменьшение размера текста для кнопки выхода */
+        padding: 5px 10px; /* Уменьшение отступов для кнопки выхода */
+    }
+
+    .username-link {
+        font-size: 0.9em; /* Уменьшение размера текста для ссылки на имя пользователя */
+    }
+
+    .auth-link {
+        font-size: 0.9em; /* Уменьшение размера текста для ссылок на авторизацию */
+    }
+
+    footer {
+        padding: 10px; /* Еще большее уменьшение отступов в футере */
+    }
+
+    footer nav a {
+        font-size: 0.9em; /* Уменьшение размера шрифта для ссылок в футере */
+        padding: 5px 10px; /* Уменьшение отступов для ссылок */
+    }
+
+    footer h2 {
+        font-size: 1em; /* Уменьшение размера заголовка h2 в футере */
+    }
+
+    footer p {
+        font-size: 0.9em; /* Уменьшение размера текста в параграфах футера */
+    }
+}

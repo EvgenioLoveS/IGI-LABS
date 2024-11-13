@@ -1,0 +1,28 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<meta name="description" content="Страница с часто задаваемым вопросом">
+<meta name="keywords" content="Bookshop, book, shop, faq">
+<meta name="author" content="Zhgutov Evgeniy">
+<link href="{% static 'css/faqs_detail.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+Вопрос
+{% endblock %}
+
+{% block content %}
+
+<section itemscope itemtype="https://schema.org/FAQPage">
+    <h2>Информация о вопросе № {{ faq.id }}</h2>
+        <section class="faq-block">
+            <details>
+                <summary itemscope itemtype="https://schema.org/Question" itemprop="name"> {{ faq.question }}</summary>
+                <p itemscope itemtype="https://schema.org/Answer" itemprop="text">{{ faq.answer }}</p>
+            </details>
+            <p itemprop="datePublished">{{ faq.date }}</p>
+        </section>
+</section>
+
+{% endblock %}

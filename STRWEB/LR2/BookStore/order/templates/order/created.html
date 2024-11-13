@@ -1,0 +1,19 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<meta name="description" content="Страница с окончанием заказа">
+<meta name="keywords" content="Bookshop, book, shop, order">
+<meta name="author" content="Zhgutov Evgeniy">
+<link href="{% static 'css/order_creation.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Thank you{% endblock %}
+
+{% block content %}
+<div class="order-page">
+    <h1>Спасибо за покупку</h1>
+    <p>Ваш заказ успешно оформлен. Номер вашего заказа:
+        <strong>{{ order.id }}</strong>.</p>
+    </div>
+{% endblock %}
