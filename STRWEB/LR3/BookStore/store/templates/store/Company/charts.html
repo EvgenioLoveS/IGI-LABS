@@ -1,0 +1,29 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<meta name="description" content="Страница со статьями">
+<meta name="keywords" content="Bookshop, book, shop, charts">
+<meta name="author" content="Zhgutov Evgeniy">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+{% block title %}
+График разложения функции
+{% endblock %}
+
+{% block content %}
+
+<h2>График разложения функции и исходной функции</h2>
+<canvas id="myChart" width="400" height="200"></canvas>
+
+    <!-- Передаем значения x и eps в JavaScript -->
+    <script>
+        const x = {{ x }};
+        const eps = {{ eps }};
+    </script>
+
+    <!-- Подключаем JavaScript-файл для расчета и отображения графика -->
+    <script src="{% static 'js/charts.js' %}"></script>
+
+{% endblock %}

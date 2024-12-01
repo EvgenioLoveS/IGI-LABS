@@ -1,0 +1,88 @@
+/* Селектор элементов: применяется к каждому элементу h1 */
+h1 {
+    color: blue;
+    font-size: 2rem;
+}
+
+/* Селектор класса: применяется ко всем элементам с классом "intro" */
+.intro {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+/* Селектор по атрибуту с определенным значением: применяется к ссылкам, где target="_blank" */
+a[target="_blank"] {
+    color: red;
+    text-decoration: underline;
+}
+
+/* Селектор по атрибуту, который начинается с подстроки (например, name начинается с "user") */
+input[name^="user"] {
+    border: 2px solid green;
+    padding: 0.5rem;
+}
+
+/* Селектор по атрибуту, который заканчивается подстрокой (например, src заканчивается на ".jpg") */
+img[src$=".jpg"] {
+    border-radius: 10px;
+    width: 100px;
+}
+
+/* Комбинация селекторов (AND): применяется ко всем ссылкам с классом "external-link", которые открываются в новом окне */
+a.external-link[target="_blank"] {
+    font-weight: bold;
+}
+
+/* Селектор потомков: применяется ко всем h2, которые являются потомками элемента с классом "article" */
+.article h2 {
+    color: darkgreen;
+}
+
+/* Селектор дочерних элементов: применяется только к непосредственным потомкам li внутри ul с классом "menu" */
+ul.menu > li {
+    list-style-type: none;
+    padding: 5px;
+    background-color: lightgray;
+    margin-bottom: 5px;
+}
+
+/* Стили для доступных элементов (enabled) */
+input:enabled {
+    border: 2px solid green;
+    background-color: #f9f9f9;
+}
+
+/* Стили для обязательных элементов (required) */
+input[required] {
+    border: 2px solid blue;
+    background-color: #e0f7fa;
+}
+
+/* Стили для заблокированных элементов (disabled) */
+input:disabled {
+    border: 2px solid gray;
+    background-color: #f0f0f0;
+    color: #a0a0a0;
+}
+
+/* Стили для элементов со значениями вне диапазона */
+input:out-of-range {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+}
+
+/* Стили для включенных флажков (checkbox:checked) */
+input[type="checkbox"]:checked {
+    outline: 2px solid darkgreen;
+    background-color: #d4edda;
+}
+
+/* Стили для включенных переключателей (radio:checked) */
+input[type="radio"]:checked {
+    outline: 2px solid darkblue;
+    background-color: #d1ecf1;
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto', Georgia, serif; /* Основной Roboto, альтернативный Georgia, семейство serif */
+}

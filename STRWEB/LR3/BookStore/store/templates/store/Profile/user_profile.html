@@ -1,0 +1,92 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<meta name="description" content="Страница профиля пользователя">
+<meta name="keywords" content="Bookshop, profile, information">
+<meta name="author" content="Zhgutov Evgeniy">
+<link href="{% static 'css/user_profile.css' %}" rel="stylesheet">
+
+
+
+{% endblock %}
+
+{% block title %}
+Профиль пользователя {{ user_profile.username }}
+{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <h2>Профиль {{ user_profile.username }}</h2>
+
+    <div class="avatar-container">
+        {% if user_profile.avatar %}
+            <img src="{{ user_profile.avatar.url }}" alt="Аватар {{ user_profile.username }}" class="avatar_profile"/>
+        {% else %}
+            <img src="{% static 'images/default_avatar.png' %}" alt="Аватар по умолчанию" class="avatar_profile"/>
+        {% endif %}
+    </div>
+
+    <div class="info-container">
+        <h3>Основная информация</h3>
+        <p><strong>Имя:</strong> {{ user_profile.first_name }}</p>
+        <p><strong>Фамилия:</strong> {{ user_profile.last_name }}</p>
+        <p><strong>Дата рождения:</strong> {{ user_profile.date_of_birth }}</p>
+        <p><strong>Email:</strong> {{ user_profile.email }}</p>
+        <p><strong>Телефон:</strong> {{ user_profile.phone_number }}</p>
+
+        <!-- Выводим статус пользователя -->
+        <p><strong>Статус пользователя:</strong>
+            {% if user_profile.is_superuser %}
+                Администратор
+            {% elif user_profile.is_staff %}
+                Сотрудник
+            {% else %}
+                Обычный пользователь
+            {% endif %}
+        </p>
+    </div>
+
+    <div class="edit-profile">
+        <a href="{% url 'store:profile_edit' username=user_profile.username %}">Редактировать профиль</a>
+    </div>
+</div>
+
+<div class="cube-form-container">
+    <h2>Введите данные кубиков:</h2>
+     <form id="cubeForm">
+         <label for="cubeData">Данные о кубиках (например: 3, red; 4, blue):</label><br>
+         <input type="text" id="cubeData" required><br>
+         <label for="methodSelect">Выберите метод реализации:</label><br>
+         <select id="methodSelect">
+             <option value="prototype">Прототипное наследование</option>
+             <option value="class">Классы и наследование</option>
+         </select><br>
+         <input type="submit" value="Отправить">
+     </form>
+</div>
+     
+<div id="output" class="output-container" ></div>
+ 
+     <script>
+         document.getElementById("methodSelect").addEventListener("change", function() {
+             const selectedMethod = document.getElementById("methodSelect").value;
+             const scriptTag = document.getElementById("oopScript");
+ 
+             // Удаляем текущий скрипт, если он есть
+             if (scriptTag) {
+                 scriptTag.remove();
+             }
+ 
+             // Создаем новый тег для скрипта в зависимости от выбранного метода
+             const newScript = document.createElement("script");
+             newScript.id = "oopScript";
+             newScript.src = selectedMethod === "prototype" ? "{% static 'js/oop_prototype.js' %}" : "{% static 'js/oop_class.js' %}";
+             document.body.appendChild(newScript);
+         });
+ 
+         // Инициализация с выбранным по умолчанию методом
+         document.getElementById("methodSelect").dispatchEvent(new Event("change"));
+     </script>
+
+{% endblock %}

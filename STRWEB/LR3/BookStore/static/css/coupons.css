@@ -1,0 +1,91 @@
+.inactive-coupons {
+    background-color: #f2dede;
+            border: 1px solid #a94442;
+            color: #a94442;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+}
+
+.active-coupons {
+    background-color: #dff0d8;
+    border: 1px solid #3c763d;
+    color: #3c763d;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.hotometer {
+    color: black;
+    border: 1px solid aqua;
+    border-radius: 50%;
+}
+
+.container {
+    width: 200px;
+    height: 14pt;
+    background-color: lightgray;
+    position: relative;
+  }
+  
+  .colorFill {
+    width: 50%;
+    height: 100%;
+    background-color: red;
+    position: absolute;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  
+/* Стили для планшетов (ширина от 768px до 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .inactive-coupons, .active-coupons {
+      padding: 12px;
+      margin: 12px;
+      font-size: 0.95rem;
+  }
+
+  .hotometer {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      font-size: 0.9rem;
+      padding: 8px;
+  }
+
+  .container {
+      width: 200px;
+      height: 18pt;
+  }
+
+  .colorFill {
+      width: 60%;
+  }
+}
+
+/* Стили для мобильных устройств (ширина до 767px) */
+@media (max-width: 767px) {
+  .inactive-coupons, .active-coupons {
+      padding: 10px;
+      margin: 10px;
+      font-size: 0.85rem;
+  }
+
+  .hotometer {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      font-size: 0.8rem;
+      padding: 6px;
+  }
+
+  .container {
+      width: 150px;
+      height: 14pt;
+  }
+
+  .colorFill {
+      width: 50%; /* Уменьшаем ширину для мобильных */
+  }
+}

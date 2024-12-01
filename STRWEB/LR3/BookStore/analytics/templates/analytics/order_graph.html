@@ -1,0 +1,20 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<meta name="description" content="Страница со статистикой">
+<meta name="keywords" content="Bookshop, book, statistics">
+<meta name="author" content="Zhgutov Evgeniy">
+<link href="{% static 'css/order_graph.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Статистика заказов{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Статистика заказов по датам</h2>
+    <img src="{{ graph_url }}" alt="Orders Chart">
+</div>
+    
+    
+{% endblock %}

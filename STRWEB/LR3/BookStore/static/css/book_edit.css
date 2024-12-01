@@ -1,0 +1,107 @@
+/* Общие стили для формы */
+section form {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #e4cfa1;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+section form h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+section form input[type="submit"] {
+    background-color: #28a745;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+section form input[type="submit"]:hover {
+    background-color: #dc3545;
+}
+
+/* Доступные элементы */
+input:not([disabled]):not([required]),
+select:not([disabled]):not([required]),
+textarea:not([disabled]):not([required]) {
+    border: 2px solid #007bff;
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Обязательные элементы */
+input[required],
+select[required],
+textarea[required] {
+    border: 2px solid #dc3545;
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+input[required]:focus,
+select[required]:focus,
+textarea[required]:focus {
+    border-color: #ff073a;
+    outline: none;
+    box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+}
+
+/* Заблокированные элементы */
+input[disabled],
+select[disabled],
+textarea[disabled] {
+    background-color: #e9ecef;
+    border: 2px dashed #6c757d;
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+    border-radius: 5px;
+    color: #6c757d;
+}
+
+/* Элементы со значениями вне диапазона */
+input:out-of-range {
+    border-color: #ff073a;
+    background-color: #fff6f6;
+}
+
+input:out-of-range:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 7, 58, 0.5);
+}
+
+/* Включенные флажки и переключатели */
+input[type="checkbox"]:checked + label,
+input[type="radio"]:checked + label {
+    color: #28a745;
+    font-weight: bold;
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* Общий стиль для текста ошибок */
+.form-error {
+    color: #dc3545;
+    font-size: 0.9em;
+    margin-top: 5px;
+}

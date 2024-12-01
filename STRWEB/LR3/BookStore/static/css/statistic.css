@@ -1,0 +1,53 @@
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #ffffff;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.client {
+    color: #2980b9; /* Цвет для клиентов */
+}
+
+.book {
+    color: #27ae60; /* Цвет для книг */
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+}
+
+p:last-of-type {
+    margin-bottom: 30px; /* Добавление отступа снизу для последнего абзаца */
+}
+
+.total-sales {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e74c3c; /* Красный цвет для выделения суммы продаж */
+}
+
+.genre-stats {
+    font-style: italic;
+    color: #7f8c8d;
+}

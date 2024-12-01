@@ -1,0 +1,32 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<meta name="description" content="Страница с работниками">
+<meta name="keywords" content="Bookshop, book, shop, workers">
+<meta name="author" content="Zhgutov Evgeniy">
+<link href="{% static 'css/workers.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+Работники
+{% endblock %}
+
+{% block content %}
+    <section>
+        <h2> Наши работники </h2>
+        <div class="employees">
+            {% for worker in workers %}
+                <div itemprop="employee" class="employee">
+                    <img src="{{ worker.img.url}}" width="200" height="200">
+                    <p>Имя: {{worker.worker.first_name}}</p>
+                    <p>Фамилия: {{worker.worker.last_name}}</p>
+                    <p>Дата рождения: {{worker.worker.date_of_birth}}</p>
+                    <p>Почта: <a href="mailto:{{ worker.worker.email }}"> {{worker.worker.email}} </a></p>
+                    <p>Телефон: {{worker.worker.phone_number}}</p>
+                    <p>Должность: {{worker.description}}</p>
+                </div>
+            {% endfor %} 
+        </div>         
+    </section>
+{% endblock %}

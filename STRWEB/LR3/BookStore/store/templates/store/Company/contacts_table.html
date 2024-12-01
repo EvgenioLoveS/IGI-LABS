@@ -1,0 +1,107 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<meta name="description" content="Страница с таблицей контактов">
+<link href="{% static 'css/contacts_table.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Таблица контактов{% endblock %}
+
+{% block content %}
+
+<div class="preloader-container1" id="preloader-container">
+    <div class="loader" id="preloader">
+      <div class="spinner-container-B">
+        <div class="spinner">
+          <div class="spinner-container-B">
+            <div class="spinner">
+              <div class="spinner-container-B">
+                <div class="spinner">
+                  <div class="spinner-container-B">
+                    <div class="spinner">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<section id="contacts-section">
+    <h2>Список контактов</h2>
+    <button id="add-contact-btn">Добавить контакт</button>
+
+    <!-- Форма добавления -->
+    <div id="add-contact-form" style="display: none;">
+        <input type="text" id="contact-full-name" placeholder="ФИО">
+        <input type="text" id="contact-phone" placeholder="Телефон">
+        <input type="email" id="contact-email" placeholder="Почта">
+        <textarea id="contact-description" placeholder="Описание выполняемых работ"></textarea>
+        <input type="url" id="contact-photo-url" placeholder="Ссылка на фото">
+        <button id="submit-contact">Добавить в таблицу</button>
+        <div id="validation-message"></div>
+    </div>
+
+    <!-- Фильтрация -->
+    <input type="text" id="filter-input" placeholder="Поиск по имени, телефону или почте">
+    <button id="filter-btn">Найти</button>
+
+    <!-- Таблица -->
+    <table id="contacts-table">
+        <thead>
+            <tr>
+                <th id="name-header" onclick="sortTable('full_name')">
+                    ФИО
+                    <span id="name-sort-arrow" class="sort-arrow"></span>
+                </th>
+                <th>Фото</th>
+                <th id="description-header" onclick="sortTable('job_description')">
+                    Описание
+                    <span id="description-sort-arrow" class="sort-arrow"></span>
+                </th>
+                <th id="phone-header" onclick="sortTable('phone')">
+                    Телефон
+                    <span id="phone-sort-arrow" class="sort-arrow"></span>
+                </th>
+                <th id="email-header" onclick="sortTable('email')">
+                    Почта
+                    <span id="email-sort-arrow" class="sort-arrow"></span>
+                </th>
+                <th>Выбрать</th>
+            </tr>
+        </thead>
+        <tbody id="contacts-tbody">
+            <!-- Данные будут загружены через JavaScript -->
+        </tbody>
+    </table>
+
+    <!-- Детали контакта -->
+    <div id="contact-details" style="display: none;">
+        <h3>Информация о контакте</h3>
+        <p><strong>ФИО:</strong> <span id="contact-name-detail"></span></p>
+        <p><strong>Телефон:</strong> <span id="contact-phone-detail"></span></p>
+        <p><strong>Почта:</strong> <span id="contact-email-detail"></span></p>
+        <p><strong>Описание:</strong> <span id="contact-description-detail"></span></p>
+        <p><strong>Фото:</strong> <img id="contact-photo-detail" width="100" height="100"></p>
+    </div>
+
+    <!-- Пагинация -->
+    <div id="pagination-controls">
+        <button id="prev-page-btn">Назад</button>
+        <span id="page-number">Страница 1</span>
+        <button id="next-page-btn">Вперед</button>
+    </div>
+
+    <!-- Кнопка премирования -->
+    <button id="premiate-btn">Премировать</button>
+    <div id="premiate-message"></div>
+</section>
+
+<!-- Подключение JavaScript -->
+<script src="{% static 'js/contacts_table.js' %}"></script>
+{% endblock %}

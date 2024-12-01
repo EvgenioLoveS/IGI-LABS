@@ -1,0 +1,289 @@
+/* preloader */
+.preloader-container1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон */
+    z-index: 10;
+    opacity: 1;
+}
+
+
+ .preloader-container1.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.3s ease-out;
+}
+
+.preloader-container1.shown {
+    opacity: 1;
+    pointer-events: all;
+    transition: opacity 1.3s ease-in;
+}
+
+
+.loader {
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    transform: rotate(45deg);
+}
+
+.spinner-container-B {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.spinner {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border: 2px solid #e60d0d;
+    z-index: 1;
+    animation: rotation 4s infinite linear, resize 4s infinite linear;
+}
+
+.hider {
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    background-color: #63a1f4;
+    z-index: 2;
+    transform: rotate(45deg);
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes resize {
+    0%, 25%, 50%, 75%, 100% {
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        top: 0%;
+    }
+    5%, 30%, 55%, 80% {
+        width: 79%;
+        height: 79%;
+        left: 10.5%;
+        top: 10.5%;
+    }
+    10%, 35%, 60%, 85% {
+        width: 71%;
+        height: 71%;
+        left: 14.5%;
+        top: 14.5%;
+    }
+    15%, 40%, 65%, 90% {
+        width: 71%;
+        height: 71%;
+        left: 14.5%;
+        top: 14.5%;
+    }
+    20%, 45%, 70%, 95% {
+        width: 79%;
+        height: 79%;
+        left: 10.5%;
+        top: 10.5%;
+    }
+}
+
+/* Общие стили для таблицы */
+table {
+    width: 100%; /* Ширина таблицы на всю ширину контейнера */
+    border-collapse: collapse; /* Убираем пробелы между ячейками */
+    margin: 0 auto; /* Центрируем таблицу */
+    margin-top: 20px;
+    background-color: #fff; /* Белый фон таблицы */
+    border-radius: 8px; /* Сглаженные углы */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+/* Заголовки и ячейки таблицы */
+th, td {
+    padding: 15px; /* Отступы внутри ячеек */
+    text-align: center; /* Выравнивание текста по центру */
+    border-bottom: 1px solid #ccc; /* Граница между строками */
+    cursor: pointer; /* Указатель мыши при наведении */
+}
+
+th {
+    background-color: #3498db; /* Цвет фона для заголовков */
+    color: white; /* Цвет текста заголовков */
+}
+
+/* Эффекты при наведении на заголовки */
+th:hover {
+    background-color: #0f70b1;
+}
+
+/* Эффект при наведении на строки */
+tr:hover {
+    background-color: #f1f1f1; /* Цвет фона строки при наведении */
+}
+
+/* Стрелки сортировки */
+.sort-arrow {
+    margin-left: 5px; /* Отступ для стрелок сортировки */
+    font-size: 12px; /* Размер стрелок */
+    color: #fff; /* Белый цвет стрелок */
+}
+
+/* Стили для кнопок */
+button {
+    background-color: #2ecc71; /* Зелёный фон */
+    color: white; /* Белый текст */
+    border: none; /* Убираем границу */
+    padding: 10px 20px; /* Отступы */
+    border-radius: 5px; /* Сглаженные углы */
+    cursor: pointer; /* Указатель мыши */
+    font-size: 14px; /* Размер текста */
+    transition: background-color 0.3s ease; /* Плавное изменение цвета */
+}
+
+/* Эффект при наведении на кнопку */
+button:hover {
+    background-color: #27ae60; /* Более тёмный зелёный при наведении */
+}
+
+/* Для неактивных кнопок */
+button:disabled {
+    background-color: #bdc3c7; /* Серый цвет для неактивных кнопок */
+    cursor: not-allowed; /* Указатель мыши для неактивных кнопок */
+}
+
+/* Стили для формы добавления контакта */
+#add-contact-form {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #ecf0f1; /* Светло-серый фон */
+    border: 1px solid #bdc3c7; /* Тонкая граница */
+    border-radius: 5px; /* Сглаженные углы */
+}
+
+#add-contact-form input,
+#add-contact-form textarea {
+    width: calc(100% - 30px); /* Полная ширина за вычетом отступов */
+    padding: 10px;
+    margin-bottom: 10px; /* Отступы между элементами */
+    border: 1px solid #bdc3c7; /* Граница */
+    border-radius: 4px; /* Сглаженные углы */
+    font-size: 14px;
+}
+
+#add-contact-form input[type="file"] {
+    padding: 0; /* Убираем отступы для файлового инпута */
+}
+
+/* Сообщение об ошибках валидации */
+#validation-message {
+    color: red; /* Красный текст для сообщений */
+    font-size: 12px; /* Небольшой размер текста */
+    margin-top: 10px; /* Отступ сверху */
+}
+
+/* Стили для фильтра */
+#filter-input {
+    width: 300px; /* Ширина текстового поля */
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Стили для блока с деталями контакта */
+#contact-details {
+    padding: 15px;
+    border: 1px solid #bdc3c7;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#contact-details img {
+    border-radius: 8px; /* Немного сглаженные углы у фото */
+}
+
+/* Пагинация */
+#pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+#pagination-controls button {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+#pagination-controls span {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Стили для блока списка контактов */
+#contacts-section {
+    padding: 20px;
+}
+
+#contacts-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#add-contact-btn,
+#filter-btn,
+#premiate-btn {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+#add-contact-btn:hover,
+#filter-btn:hover,
+#premiate-btn:hover {
+    background-color: #27ae60;
+}
+
+/* Стили для формы добавления контакта */
+#add-contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Стиль для фото в таблице */
+#contacts-table td img {
+    border-radius: 8px; /* Сглаженные углы для фотографий */
+}
+
+.invalid-input {
+    border: 2px solid red;
+    background-color: pink;
+}

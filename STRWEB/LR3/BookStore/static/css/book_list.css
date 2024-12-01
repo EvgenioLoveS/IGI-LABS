@@ -1,0 +1,208 @@
+/* Общие стили */
+.category a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.category a:hover {
+    text-decoration: underline;
+}
+
+/* Стили для блока категорий */
+.categories {
+    background-color: #fff;
+    padding: 20px;
+}
+
+.categories h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Стили для списка категорий с маркерами Unicode */
+.categories ul li {
+    margin-bottom: 3px;
+    list-style: none; /* Убираем стандартные маркеры */
+}
+
+.categories ul li::before {
+    content: "\2022"; /* Символ юникода - черная точка */
+    font-size: 1.5em;
+    color: #e4cfa1; /* Цвет маркера */
+    display: inline-block;
+    width: 0.5em;
+    margin-right: 0.3em; /* Отступ между маркером и текстом */
+}
+
+.categories ul li a {
+    color: #333;
+    font-weight: bold;
+}
+
+.categories ul li a:hover {
+    color: #896a05;
+}
+
+/* Стили для контейнера книг */
+.book-list-container {
+    padding: 20px;
+   
+}
+
+.book-list-container a{
+     text-decoration: none;
+     color: #000;
+}
+
+.book-list-container a:hover{
+    text-decoration: none;
+    color: #f73030;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+/* Стили для товара */
+.item {
+    background-color: #e4cfa1;
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавный переход для трансформации и тени */
+}
+
+.item:hover {
+    transform: scale(1.05); /* Легкое увеличение карточки при наведении */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Тень при наведении */
+    background-color: #e0e0e0;
+}
+
+.item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease; /* Плавный переход для изображения */
+}
+
+.item:hover img {
+    transform: scale(1.1); /* Увеличение изображения при наведении */
+}
+
+.item-info a {
+    font-size: 1.2em;
+    color: #333;
+    font-weight: bold;
+}
+
+.item-info a:hover {
+    color: #f73030;
+}
+
+.item-info {
+    margin-top: 10px;
+    font-size: 1em;
+    color: #555;
+}
+
+/* Стили для кнопок сортировки */
+button[type="submit"] {
+    background-color: #f73030; /* Синий фон */
+    color: #fff; /* Белый текст */
+    border: none;
+    padding: 5px 10px;
+    font-size: 0.5em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Плавные переходы для цвета фона и трансформации */
+}
+
+button[type="submit"]:hover {
+    background-color:  #c62626; /* Темно-синий при наведении */
+    transform: scale(1.05); /* Легкое увеличение при наведении */
+}
+
+button[type="submit"]:active {
+    transform: scale(0.95); /* Легкое уменьшение при нажатии */
+}
+
+button[type="submit"]:focus {
+    outline: none; /* Убираем обводку фокуса */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Легкая тень для фокуса */
+}
+
+/* Медиа-запрос для устройств с шириной до 768px (например, планшеты) */
+@media (max-width: 768px) {
+    /* Адаптация заголовков категорий */
+    .categories h3 {
+        font-size: 1.3em; /* Уменьшаем размер заголовка */
+    }
+
+    /* Адаптация списка категорий */
+    .categories ul li {
+        margin-bottom: 5px; /* Увеличиваем отступы для лучшей читаемости */
+    }
+
+    /* Адаптация контейнера для книг */
+    .book-list-container {
+        padding: 15px; /* Уменьшаем отступы для лучшего использования пространства */
+    }
+
+    /* Адаптация сетки для книг */
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Меньше колонок, чтобы элементы лучше смотрелись */
+        grid-gap: 15px; /* Уменьшаем промежутки между элементами */
+    }
+
+    /* Адаптация стиля для книги */
+    .item {
+        padding: 15px; /* Уменьшаем отступы в карточке книги */
+        border-radius: 10px; /* Немного меньшее закругление углов */
+    }
+
+    /* Адаптация текста книги */
+    .item-info a {
+        font-size: 1.1em; /* Уменьшаем размер текста */
+    }
+
+    /* Адаптация кнопок сортировки */
+    button[type="submit"] {
+        font-size: 0.9em; /* Увеличиваем размер кнопки */
+        padding: 7px 12px; /* Увеличиваем отступы внутри кнопки */
+    }
+
+    /* Увеличиваем текст в категориях при наведении */
+    .categories ul li a:hover {
+        color: #7a5501; /* Меняем цвет ссылки при наведении */
+    }
+}
+
+/* Стили для пагинации */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.page-btn {
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: #f73030;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.page-btn:hover {
+    background-color: #c62626;
+    transform: scale(1.05);
+}
+
+.page-btn.active {
+    background-color: #333;
+}

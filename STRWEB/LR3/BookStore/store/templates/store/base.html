@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="/media/icon-book-shop.png" type="image/x-icon">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <script src="{% static 'js/timer.js' %}" defer> </script>
+    {% block extra_head %} {% endblock %}
+    <title>{% block title %} Книжный уголок {% endblock %}</title>
+</head>
+<body>
+    <div class="background-wrapper">
+        <div class="main-content">
+            
+            <header>
+                <nav>
+                    <a href="/home/">Главная&nbsp;</a>
+                    <a href="{% url 'store:book_list' %}">Наш магазин</a>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'order:user_orders' %}">Мои заказы&nbsp;</a>
+                    {% endif %}
+                    {% if user.is_superuser %}
+                    <a href= "{% url 'analytics:statistic' %}" >Статистика&nbsp;</a>
+                    {% endif %}
+                    {% if user.is_superuser %}
+                    <a href= "{% url 'analytics:order_graph' %}" >График заказов&nbsp;</a>
+                    {% endif %}
+                    {% if user.is_superuser or user.is_staff %}
+                    <a href="{% url 'order:order_list' %}">Список заказов&nbsp;</a>
+                    {% endif %}
+                </nav>
+
+                <div class="user-info"> 
+                    <div class="cart">
+                        {% if user.is_authenticated %}
+                            {% with total_items=cart|length %}
+                                {% if cart|length > 0 %}
+                                    <p>Your cart:
+                                    <a href="{% url 'cart:cart_detail' %}">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        {{ total_items }} item{{ total_items|pluralize }},
+                                        ${{ cart.get_total_price }}
+                                    </a></p>
+                                {% else %}
+                                    <p>Ваша корзина пуста</p>
+                                    <i class="fas fa-shopping-cart"></i>
+                                {% endif %}
+                            {% endwith %}
+                    </div>
+
+                    <div class="user-avatar-username">
+                        <div class="user-avatar">
+                            {% if user.avatar %}
+                                <img src="{{ user.avatar.url }}" alt="Аватар {{ user.username }}" class="avatar">
+                            {% else %}
+                                <img src="{% static 'images/default_avatar.png' %}" alt="Аватар по умолчанию" class="avatar">
+                            {% endif %}
+                        </div>
+            
+                        <a class="username-link" href="{% url 'store:user_profile' username=user.username %}" title="Перейти на профиль {{ user.username }}">{{ user.username }}</a>     
+                    </div>
+
+                    <a class="logout-button" href="{% url 'login:logout' %}">LogOut</a>
+                    {% else %}
+                        <a class="auth-link" href="{% url 'login:register' %}">Sign up</a>
+                        <a class="auth-link" href="{% url 'login:login' %}">Sign in</a>
+                    {% endif %}
+                </div>
+            </header>
+
+            <main>
+                <div id="content">
+                    {% block content %} {% endblock %}
+                </div>
+            </main>
+            <footer>
+                <nav>
+                    <a href="/about/">О компании&nbsp;</a>
+                    <a href="/workers/">Наши работники&nbsp;</a>
+                    <a href="/vacancies/">Вакансии&nbsp;</a>
+                    <a href="/privacy/">Политика конфиденциальности&nbsp;</a>
+                    <a href="/faqs/">Вопросы&nbsp;</a>
+                    <a href="/articles/">Статьи&nbsp;</a>
+                    <a href="/coupons/">Купоны&nbsp;</a>
+                    <a href="/reviews/">Отзывы&nbsp;</a>
+                    <a href="/charts/">Графики разложения&nbsp;</a>
+                </nav>
+            </footer>
+        </div>
+    </div>    
+</body>
+</html>

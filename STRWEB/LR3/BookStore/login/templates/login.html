@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="description" content="Страница с входом">
+        <meta name="keywords" content="Bookshop, book, shop, login">
+        <meta name="author" content="Zhgutov Evgeniy">
+        <link href="{% static 'css/login.css' %}" rel="stylesheet"> 
+
+        <title>Login</title>
+    </head>
+    <body>
+        <script>
+            let isAgeVerified = false;
+
+            function checkAge() {
+                // Запрашиваем у пользователя дату рождения
+                const birthDate = prompt("Введите дату рождения в формате ГГГГ-ММ-ДД");
+                const parsedDate = new Date(birthDate);
+
+                // Проверяем, корректно ли введена дата
+                if (isNaN(parsedDate.getTime())) {
+                    alert("Некорректная дата. Пожалуйста, введите дату в правильном формате.");
+                    return false;
+                }
+
+                // Рассчитываем возраст пользователя
+                const ageInMilliseconds = Date.now() - parsedDate.getTime();
+                const ageInYears = new Date(ageInMilliseconds).getUTCFullYear() - 1970;
+
+                // Определяем день недели для даты рождения
+                const daysOfWeek = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
+                const dayOfWeek = daysOfWeek[parsedDate.getDay()];
+
+                // Проверяем, достиг ли пользователь 18 лет
+                if (ageInYears >= 18) {
+                    alert(`Вы совершеннолетний. День недели вашего рождения: ${dayOfWeek}`);
+                    return true;
+                } else {
+                    // Если пользователь несовершеннолетний, запрашиваем разрешение родителей
+                    const parentPermission = confirm("Вы несовершеннолетний. Можете зайти только со взрослым.");
+                    if (parentPermission) {
+                        alert(`Спасибо! День недели вашего рождения: ${dayOfWeek}`);
+                        return true;
+                    } else {
+                        alert("Извините, доступ запрещен без разрешения родителей.");
+                        return false;
+                    }
+                }
+            }
+
+            function onFormSubmit(event) {
+                if (!isAgeVerified) {
+                    event.preventDefault();
+                    isAgeVerified = checkAge();
+
+                    if (isAgeVerified) {
+                        // Если возраст подтвержден, отправляем форму
+                        event.currentTarget.submit();
+                    } else {
+                        alert("Вам необходимо подтвердить свой возраст или получить разрешение родителей!");
+                    }
+                }
+            }
+        </script>
+        <div class="login-container">
+            <h2>Авторизация</h2>
+            <form action="" method="POST" onsubmit="onFormSubmit(event)">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Sign in</button>
+            </form>
+        </div>
+        <div class="quote-container">
+            <p>Quote for you: <q lang="en" cite="https://favqs.com/api/qotd">{{ quote }}</q></p>
+            <p>Цитата для вас: <q lang="ru" cite="https://favqs.com/api/qotd">{{ quote }}</q></p>
+
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,94 @@
+.vacancies {
+    background-color: #e4cfa1;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    clear: none;
+}
+
+.vacancy_name {
+    float: left;
+    margin-right: 15px;
+}
+
+.vacancy_name::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #f9f9f9;
+    margin: 10px auto 0; /* Центрируем и добавляем отступ сверху */
+}
+
+.vacancy_description {
+    clear: right;
+    
+}
+
+.vacancy_salary {
+    clear: both;
+}
+
+
+/* Стили для планшетов (ширина от 768px до 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .vacancies {
+        padding: 15px;
+    }
+
+    .vacancy_name {
+        float: none; /* Убираем обтекание для заголовка вакансии */
+        margin-right: 0;
+        font-size: 1.3rem; /* Уменьшаем шрифт для заголовков */
+        text-align: center; /* Центрируем текст */
+    }
+
+    .vacancy_name::after {
+        width: 60px; /* Уменьшаем ширину декоративной линии */
+    }
+
+    .vacancy_description {
+        font-size: 1rem;
+        text-align: center; /* Центрируем описание на планшетах */
+    }
+
+    .vacancy_salary {
+        font-size: 1.1rem;
+        text-align: center; /* Центрируем информацию о зарплате */
+        clear: both;
+    }
+}
+
+/* Стили для мобильных устройств (ширина до 767px) */
+@media (max-width: 767px) {
+    .vacancies {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    .vacancy_name {
+        float: none;
+        margin-right: 0;
+        font-size: 1.2rem; /* Ещё сильнее уменьшаем шрифт на мобильных */
+        text-align: center; /* Центрируем заголовок */
+    }
+
+    .vacancy_name::after {
+        width: 50px; /* Ещё меньше декоративная линия */
+    }
+
+    .vacancy_description {
+        font-size: 0.9rem;
+        text-align: center; /* Центрируем описание */
+        margin-top: 10px;
+    }
+
+    .vacancy_salary {
+        font-size: 1rem;
+        text-align: center; /* Центрируем информацию о зарплате */
+        clear: both;
+        margin-top: 10px;
+    }
+}

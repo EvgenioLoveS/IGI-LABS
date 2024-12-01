@@ -1,0 +1,52 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<meta name="description" content="Страница со статистикой">
+<meta name="keywords" content="Bookshop, book, statistics">
+<meta name="author" content="Zhgutov Evgeniy">
+<link href="{% static 'css/statistic.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Статистика{% endblock %}
+
+{% block content %}
+
+    <h1>Статистика</h1>
+
+    <h2>Клиенты (в алфавитном порядке)</h2>
+    <ul>
+        {% for client in clients %}
+            <li class="client">{{ client.last_name }}, {{ client.first_name }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Книги (в алфавитном порядке)</h2>
+    <ul>
+        {% for book in books %}
+            <li class="book">{{ book.title }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Общая сумма продаж</h2>
+    <p class="total-sales">${{ total_sales }}</p>
+
+    <h2>Статистика продаж</h2>
+    <p>Средняя сумма: ${{ sales_average }}</p>
+    <p>Медиана: ${{ sales_median }}</p>
+    <p>Мода: ${{ sales_mode }}</p>
+
+    <h2>Возрастная статистика клиентов</h2>
+    <p>Средний возраст: {{ age_average }}</p>
+    <p>Медианный возраст: {{ age_median }}</p>
+
+    <h2>Популярный жанр</h2>
+    <p class="genre-stats">{{ popular_genre.genre__name }} ({{ popular_genre.total_sold }} продаж)</p>
+
+    <h2>Наименее популярный жанр</h2>
+    <p class="genre-stats">{{ least_popular_genre.genre__name }} ({{ least_popular_genre.total_sold }} продаж)</p>
+
+    <h2>Самый прибыльный жанр</h2>
+    <p class="genre-stats">{{ profitable_genre.genre__name }} (${{ profitable_genre.total_revenue }} общая выручка)</p>
+    
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<meta name="description" content="Страница с часто задаваемыми вопросами">
+<meta name="keywords" content="Bookshop, book, shop, faqs">
+<meta name="author" content="Zhgutov Evgeniy">
+<link href="{% static 'css/faqs.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+Часто задаваемые вопросы
+{% endblock %}
+
+{% block content %}
+
+<h2>Часто задаваемые вопросы</h2>
+<section class="faq-section">
+    <dl>
+        {% for faq in faqs %}
+        <div class="faq-item">
+            <dt class="faq-question">Вопрос: {{ faq.question }}</dt>
+            <dd class="faq-answer">Дата: {{ faq.date }}</dd>
+            <a class="faq-link" href="{{ faq.id }}/">Читать далее</a>
+        </div>
+        {% endfor %}
+    </dl>
+</section>
+
+{% endblock %}

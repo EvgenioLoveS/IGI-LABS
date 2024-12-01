@@ -1,0 +1,105 @@
+/* Основной стиль для всей страницы */
+body {
+    font-family: 'Arial', sans-serif; /* Основной шрифт */
+    background-color: #e4cfa1; /* Светлый фон */
+    color: #333; /* Основной цвет текста */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Центрирование содержимого по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    height: 160vh; /* Высота на весь экран */
+}
+
+/* Стиль для контейнера */
+.registratin-container {
+    text-align: left; /* Текст слева */
+    background-color: #ffffff; /* Белый фон контейнера */
+    padding: 40px; /* Внутренние отступы */
+    border-radius: 10px; /* Закругленные углы */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    /* max-width: 500px; Максимальная ширина контейнера */
+    max-width: 700px;
+    width: 100%;
+}
+h2{
+    text-align: center;
+}
+
+/* Заголовок */
+h1 {
+    font-size: 36px; /* Размер заголовка */
+    color: #e74c3c; /* Красный цвет для заголовка */
+    margin-bottom: 20px; /* Отступ под заголовком */
+}
+
+/* Основной текст */
+p {
+    font-size: 14px; /* Размер текста */
+    margin-bottom: 20px; /* Отступ под абзацем */
+}
+
+/* Стили для ссылок */
+a {
+    color: #3498db; /* Синий цвет ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+    font-weight: bold; /* Жирное начертание */
+    transition: color 0.3s ease; /* Плавный переход при наведении */
+}
+
+a:hover {
+    color: #2980b9; /* Темно-синий цвет при наведении */
+}
+
+/* Дополнительные отступы для ссылок */
+p a {
+    display: inline-block; /* Ссылка как блок */
+    margin-top: 10px; /* Отступ сверху */
+}
+
+/* Стили для формы */
+form {
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%; /* Ширина поля 100% */
+    padding: 10px; /* Внутренние отступы */
+    margin-bottom: 15px; /* Отступ между полями */
+    border: 1px solid #ccc; /* Легкая граница */
+    border-radius: 5px; /* Закругленные углы */
+    font-size: 16px; /* Размер шрифта */
+    box-sizing: border-box; /* Для правильной ширины */
+}
+
+/* Стили для кнопки */
+form button {
+    width: 100%; /* Ширина кнопки */
+    background-color: #3498db; /* Синий фон кнопки */
+    color: white; /* Белый текст */
+    border: none; /* Без границы */
+    padding: 12px; /* Внутренний отступ */
+    border-radius: 5px; /* Закругленные углы */
+    font-size: 18px; /* Размер шрифта */
+    cursor: pointer; /* Указатель при наведении */
+    transition: background-color 0.3s ease; /* Плавный переход фона */
+}
+
+form button:hover {
+    background-color: #2980b9; /* Темно-синий фон при наведении */
+}
+
+/* Стили для сообщений об ошибках */
+.errorlist {
+    color: red; /* Красный текст для ошибок */
+    font-size: 14px; /* Размер шрифта ошибок */
+    margin-bottom: 10px; /* Отступы под ошибками */
+}
+
+/* Стили для полей с ошибками */
+input:invalid {
+    border-color: red; /* Красная граница для ошибочных полей */
+}
+

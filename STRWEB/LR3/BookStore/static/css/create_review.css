@@ -1,0 +1,132 @@
+.review_create-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #e4cfa1; /* Мягкий бежевый фон */
+    border-radius: 10px;
+    border: 1px solid #d1b68b; /* Чуть более темная граница */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Мягкая тень */
+}
+
+.review_create-container h1 {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #333; /* Темно-серый текст */
+}
+
+/* Стили для элемента select */
+.review_create-mark {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #d1b68b; /* Чуть более темная граница */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    background-color: #fff; /* Белый фон */
+    color: #333; /* Темно-серый текст */
+    outline: none;
+}
+
+.review_create-mark:focus {
+    border: 1px solid #a78f5b; /* Более насыщенная граница при фокусе */
+    box-shadow: 0 0 10px rgba(167, 143, 91, 0.5); /* Свечение бежевого тона */
+}
+
+/* Стили для текста */
+.review_create-label {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: block;
+    text-align: left;
+    color: #5a4a2d; /* Темно-коричневый цвет для меток */
+}
+
+/* Стили для текстового поля */
+.review_create-text {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #d1b68b; /* Чуть более темная граница */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    width: 95%;
+    background-color: #fff; /* Белый фон */
+    color: #333; /* Темно-серый текст */
+    outline: none;
+    resize: none;
+    height: 150px;
+}
+
+.review_create-text:focus {
+    border: 1px solid #a78f5b; /* Более насыщенная граница при фокусе */
+    box-shadow: 0 0 10px rgba(167, 143, 91, 0.5); /* Свечение бежевого тона */
+}
+
+/* Стили для кнопок */
+.review_create-container input[type="submit"],
+input[type="button"] {
+    background-color: #a78f5b; /* Более насыщенный бежевый цвет для кнопок */
+    color: #fff; /* Белый текст */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+.review_create-container input[type="submit"]:hover,
+input[type="button"]:hover {
+    background-color: #806944; /* Темный бежевый при наведении */
+    color: #fff;
+}
+
+
+/* Планшеты (768px - 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .review_create-container {
+        max-width: 550px; /* Увеличиваем максимальную ширину для планшетов */
+        padding: 25px; /* Увеличиваем отступы */
+    }
+
+    .review_create-container h1 {
+        font-size: 26px; /* Увеличиваем размер заголовка */
+    }
+
+    .review_create-mark,
+    .review_create-text {
+        font-size: 17px; /* Увеличиваем размер шрифта для полей ввода */
+    }
+
+    .review_create-container input[type="submit"],
+    input[type="button"] {
+        font-size: 17px; /* Увеличиваем размер шрифта для кнопок */
+        padding: 10px 22px; /* Увеличиваем отступы для кнопок */
+    }
+}
+
+/* Мобильные устройства (до 767px) */
+@media (max-width: 767px) {
+    .review_create-container {
+        max-width: 90%; /* Уменьшаем максимальную ширину для мобильных */
+        padding: 15px; /* Уменьшаем отступы */
+    }
+
+    .review_create-container h1 {
+        font-size: 22px; /* Уменьшаем размер заголовка */
+    }
+
+    .review_create-mark,
+    .review_create-text {
+        font-size: 16px; /* Уменьшаем размер шрифта для полей ввода */
+    }
+
+    .review_create-container input[type="submit"],
+    input[type="button"] {
+        font-size: 16px; /* Уменьшаем размер шрифта для кнопок */
+        padding: 8px 18px; /* Уменьшаем отступы для кнопок */
+    }
+}

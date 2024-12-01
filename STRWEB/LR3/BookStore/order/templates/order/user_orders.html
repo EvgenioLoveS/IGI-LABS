@@ -1,0 +1,33 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block extra_head %}
+<meta name="description" content="Страница с заказами">
+<meta name="keywords" content="Bookshop, book, shop, orders">
+<meta name="author" content="Zhgutov Evgeniy">
+<link href="{% static 'css/user_orders.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Мои заказы{% endblock %}
+
+{% block content %}
+<h2>Мои заказы</h2>
+<table >
+    <thead>
+        <tr>
+            <th>ID заказа</th>
+            <th>Дата создания</th>
+            <th>Общая стоимость</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.created }}</td>
+            <td>${{ order.total_cost|floatformat:2 }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
